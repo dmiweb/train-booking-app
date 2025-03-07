@@ -1,10 +1,13 @@
+import {Header, Logo} from './components';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <h1>Система бронирования железнодорожных билетов</h1>
-    </>
+
+      <Header>
+        <Logo />
+      </Header>
+
   )
 }
 
