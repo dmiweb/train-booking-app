@@ -1,0 +1,12 @@
+.menu {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 83px; */
+}
+
+.menu__item {
+  font-size: 30px;
+  color: #ffffff;
+  text-decoration: none;
+}
