@@ -1,18 +1,22 @@
 .ticket-booking-widget {
-  /* display: flex;
-  flex-wrap: wrap; */
+  display: flex;
+  flex-direction: column;
+  gap: 61px;
+  width: 100%;
+  margin-bottom: 80px;
 }
 
 .ticket-booking-widget__label {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  /* gap: 15px; */
 }
 
 .ticket-booking-widget__title-label {
   flex: 1 1 100%;
-  display: block;
+  /* display: block; */
   padding-bottom: 7px;
   font-size: 30px;
   font-weight: 400;
@@ -20,14 +24,31 @@
 }
 
 .ticket-booking-widget__input {
-  flex: 1 1;
+  flex: 0 1 47%;
   box-sizing: border-box;
   width: 100%;
   height: 60px;
   border-radius: 3px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #292929;
 }
 
 .ticket-booking-widget__swap {
+  flex: 0 1 24px;
   width: 24px;
   height: 24px;
+  cursor: pointer;
+}
+
+.ticket-booking-form__submit-btn {
+  align-self: flex-end;
+  width: 323px;
+  height: 60px;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #292929;
+  background-color: #ffa800;
 }

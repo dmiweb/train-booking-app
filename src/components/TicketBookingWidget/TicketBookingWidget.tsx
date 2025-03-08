@@ -10,11 +10,13 @@ const TicketBookingWidget = () => {
         <img src={swapIcon} className="ticket-booking-widget__swap" />
         <input type="text" className="ticket-booking-widget__input" />
       </label>
+
       <label className="ticket-booking-widget__label">
         <span className="ticket-booking-widget__title-label">Дата</span>
         <input type="text" className="ticket-booking-widget__input" />
         <input type="text" className="ticket-booking-widget__input" />
       </label>
+      <button className="ticket-booking-form__submit-btn">Найти билеты</button>
     </div>
   );
 }

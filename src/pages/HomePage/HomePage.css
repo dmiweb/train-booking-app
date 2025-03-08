@@ -4,6 +4,7 @@
   align-items: flex-end;
   gap: 104px;
   height: 985px;
+  padding-right: 232px;
   background-image: url(../../assets/img/order-tickets-background.webp);
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,7 +12,11 @@
 }
 
 .order-tickets-section__container {
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
   width: 729px;
   height: 574px;
+  padding: 0 20px;
   background-color: rgba(41, 41, 41, 0.8);
 }
