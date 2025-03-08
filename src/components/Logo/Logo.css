@@ -1,8 +1,5 @@
 .logo {
-  height: 64px;
-  padding: 0 calc(13.44vw);
-  /* padding: 0 clamp(30px, 13.44vw, 258px); */
   font-size: 36px;
+  font-weight: 700;
   color: #e5e5e5;
-  background-color: rgba(0, 0, 0, 0.6);
 }

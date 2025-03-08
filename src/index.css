@@ -1,8 +1,8 @@
 @import url('https://fonts.google.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* * {
+* {
   outline: 1px solid #5eff00;
-} */
+}
 
 html {
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
@@ -12,7 +12,10 @@ html {
 
 body {
   width: 100%;
+}
+
+#root {
+  width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  /* font-family: ; */
 }

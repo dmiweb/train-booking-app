@@ -1,12 +1,15 @@
-import {Header, Logo} from './components';
+import { Header, Logo } from './components';
+import "./assets/css/normalize.css"
 import './App.css';
 
 const App = () => {
   return (
 
-      <Header>
+    <Header>
+      <div className='header__container-logo'>
         <Logo />
-      </Header>
+      </div>
+    </Header>
 
   )
 }
