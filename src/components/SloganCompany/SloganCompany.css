@@ -1,0 +1,15 @@
+.company-slogan {
+  width: 506px;
+  height: 170px;
+  font-size: 72px;
+  color: #ffffff;
+}
+
+.company-slogan__first-line {
+  font-weight: 100;
+  white-space: nowrap;
+}
+
+.company-slogan__second-line {
+  font-weight: 600;
+}

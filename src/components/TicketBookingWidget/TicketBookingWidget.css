@@ -1,0 +1,33 @@
+.ticket-booking-widget {
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
+.ticket-booking-widget__label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.ticket-booking-widget__title-label {
+  flex: 1 1 100%;
+  display: block;
+  padding-bottom: 7px;
+  font-size: 30px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.ticket-booking-widget__input {
+  flex: 1 1;
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  border-radius: 3px;
+}
+
+.ticket-booking-widget__swap {
+  width: 24px;
+  height: 24px;
+}
