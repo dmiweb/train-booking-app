@@ -1,4 +1,5 @@
 .header {
+  position: absolute;
   width: 100%;
 }
 
@@ -12,8 +13,8 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 .header__container-menu {
-  /* display: flex;
-  align-items: center; */
+  display: flex;
+  align-items: center;
   box-sizing: border-box;
   width: 100%;
   min-height: 94px;
