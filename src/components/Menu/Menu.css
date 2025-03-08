@@ -1,12 +1,28 @@
 .menu {
-  /* display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 83px; */
+  flex-wrap: wrap;
+  /* gap: 83px; */
+  max-width: 830px;
 }
 
 .menu__item {
   font-size: 30px;
   color: #ffffff;
   text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    /* gap: 5px; */
+    padding: 5px;
+    text-align: center;
+  }
+  .menu__item {
+    font-size: 30px;
+    white-space: nowrap;
+  }
 }
