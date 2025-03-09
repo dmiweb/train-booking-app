@@ -1,4 +1,4 @@
-.ticket-search-form {}
+/* .ticket-search-form {} */
 
 .ticket-search-form--homepage {
   display: flex;
@@ -13,12 +13,10 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  /* gap: 15px; */
 }
 
 .ticket-search-form__container-title {
   flex: 1 1 100%;
-  /* display: block; */
   padding-bottom: 7px;
   font-size: 30px;
   font-weight: 300;

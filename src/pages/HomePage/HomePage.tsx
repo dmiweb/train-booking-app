@@ -39,11 +39,11 @@ const HomePage = () => {
               className="how-it-works-section__advantage-icon"
               alt="Удобный заказ на сайте"
             />
-            <span className="how-it-works-section__advantage-text">Удобный заказ на сайте</span>
+            <span className="how-it-works-section__advantage-text">Удобный заказ <br/> на сайте</span>
           </div>
           <div className="how-it-works-section__advantage">
             <img
-              src="advantagesGroup2"
+              src={advantagesGroup2}
               className="how-it-works-section__advantage-icon"
               alt="Нет необходимости ехать в офис"
             />
@@ -51,13 +51,17 @@ const HomePage = () => {
           </div>
           <div className="how-it-works-section__advantage">
             <img
-              src="advantagesGroup3"
+              src={advantagesGroup3}
               className="how-it-works-section__advantage-icon"
               alt="Огромный выбор напрвлений"
             />
             <span className="how-it-works-section__advantage-text">Огромный выбор напрвлений</span>
           </div>
         </div>
+      </section>
+
+      <section className="reviews-section">
+
       </section>
     </>
   );

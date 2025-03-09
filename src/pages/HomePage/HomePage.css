@@ -33,9 +33,9 @@
 }
 
 .about-section__title {
-font-size: 36px;
-font-weight: 500;
-text-transform: uppercase;
+  font-size: 36px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .about-section__container {
@@ -59,21 +59,23 @@ text-transform: uppercase;
 .how-it-works-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 150px;
   height: 575px;
   background-image: url(../../assets/img/advantages-section-background.jpg);
   background-repeat: no-repeat;
   background-size: contain;
 
 }
+
 .how-it-works-section__header {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 60px;
   width: 100%;
+  margin-top: 60px;
 }
+
 .how-it-works-section__header-title {
   font-size: 36px;
   font-weight: 500;
@@ -92,12 +94,40 @@ text-transform: uppercase;
   background-color: transparent;
   cursor: pointer;
 }
+
 .how-it-works-section__advantages-group {
   display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 200px;
+  margin-top: 97px;
+  width: 100%;
 }
+
 .how-it-works-section__advantage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
   width: 162px;
   height: 162px;
 }
-.how-it-works-section__advantage-icon {}
-.how-it-works-section__advantage-text {}
+
+.how-it-works-section__advantage-icon {
+  border: 13px solid rgba(229, 229, 229, 0.2);
+  border-radius: 50%;
+}
+
+.how-it-works-section__advantage-text {
+  display: block;
+  width: 250px;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Reviews Section */
+.reviews-section {
+  height: 748px;
+}
