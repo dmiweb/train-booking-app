@@ -1,4 +1,4 @@
-.order-tickets-section {
+.order-tickets-section-homepage {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -11,7 +11,7 @@
   background-position: right;
 }
 
-.order-tickets-section__container {
+.order-tickets-section-homepage__container {
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
