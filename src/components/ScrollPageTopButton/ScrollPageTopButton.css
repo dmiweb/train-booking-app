@@ -1,0 +1,8 @@
+.scroll-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+  background: url(../../assets/img/icon/up-arrow.svg) no-repeat center;
+  cursor: pointer;
+}

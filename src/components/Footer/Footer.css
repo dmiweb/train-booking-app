@@ -1,0 +1,28 @@
+.footer {
+  /* width: 100%; */
+  height: 519px;
+  background-color: #2d2b2f;
+}
+
+.footer__contacts {}
+
+.footer__subscribe {}
+
+.fotter__bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 96px;
+  padding: 0 256px;
+  border-top: 1px solid #ffffff;
+}
+
+.footer__copyright {
+  font-size: 24px;
+  font-weight: 300;
+  color: #e5e5e5;
+}
