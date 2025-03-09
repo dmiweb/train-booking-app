@@ -3,6 +3,8 @@ import "./HomePage.css";
 import advantagesGroup1 from "../../assets/img/icon/advantages-group-1.svg";
 import advantagesGroup2 from "../../assets/img/icon/advantages-group-2.svg";
 import advantagesGroup3 from "../../assets/img/icon/advantages-group-3.svg";
+import client1 from "../../assets/img/client-1.png";
+import client2 from "../../assets/img/client-2.png";
 
 const HomePage = () => {
   return (
@@ -39,7 +41,7 @@ const HomePage = () => {
               className="how-it-works-section__advantage-icon"
               alt="Удобный заказ на сайте"
             />
-            <span className="how-it-works-section__advantage-text">Удобный заказ <br/> на сайте</span>
+            <span className="how-it-works-section__advantage-text">Удобный заказ <br /> на сайте</span>
           </div>
           <div className="how-it-works-section__advantage">
             <img
@@ -61,6 +63,27 @@ const HomePage = () => {
       </section>
 
       <section className="reviews-section">
+        <h2 className="reviews-section__title">Отзывы</h2>
+
+        <div className="reviews-slider">
+          <div className="reviews-slider__slide">
+            <div className="reviews-slider__review">
+              <img src={client1} className="reviews-slider__review-photo" alt="Фото клиента" />
+              <div className="reviews-slider__review-info">
+                <div className="reviews-slider__review-author">Екатерина Вальнова</div>
+                <p className="reviews-slider__review-text">Доброжелательные подсказки на всех этапах помогут правильно заполнить поля и без затруднений купить авиа или ж/д билет, даже если вы заказываете онлайн билет впервые.</p>
+              </div>
+            </div>
+            <div className="reviews-slider__review">
+              <img src={client2} className="reviews-slider__review-photo" alt="Фото клиента" />
+              <div className="reviews-slider__review-info">
+                <div className="reviews-slider__review-author">Евгений Стрыкало</div>
+                <p className="reviews-slider__review-text">СМС-сопровождение до посадки Сразу после оплаты ж/д билетов и за 3 часа до отправления мы пришлем вам СМС-напоминание о поездке.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="reviews-slider__navigation-dots"></div>
 
       </section>
     </>
