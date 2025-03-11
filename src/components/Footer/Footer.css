@@ -1,19 +1,27 @@
 .footer {
+  display: flex;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  flex-wrap: wrap;
   /* width: 100%; */
   height: 519px;
   background-color: #2d2b2f;
 }
 
-.footer__contacts {}
+.footer__contacts {
+  padding-top: 50px;
+}
 
-.footer__subscribe {}
+.footer__subscribe {
+  padding-top: 50px;
+}
 
 .fotter__bottom-container {
+  align-self: flex-end;
+  flex: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  bottom: 0;
   box-sizing: border-box;
   width: 100%;
   height: 96px;

@@ -1,8 +1,8 @@
 import { SloganCompany, TicketSearchForm, ProgressBar } from "../../components";
 import "./HomePage.css";
-import advantagesGroup1 from "../../assets/img/icon/advantages-group-1.svg";
-import advantagesGroup2 from "../../assets/img/icon/advantages-group-2.svg";
-import advantagesGroup3 from "../../assets/img/icon/advantages-group-3.svg";
+import advantagesGroup1 from "../../assets/icon/advantages-group-1.svg";
+import advantagesGroup2 from "../../assets/icon/advantages-group-2.svg";
+import advantagesGroup3 from "../../assets/icon/advantages-group-3.svg";
 import client1 from "../../assets/img/client-1.png";
 import client2 from "../../assets/img/client-2.png";
 

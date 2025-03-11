@@ -1,0 +1,62 @@
+.contacts {}
+
+.contacts__title {
+  margin: 0;
+  padding-bottom: 30px;
+  font-size: 30px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.contacts__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contacts__list a {
+  /* Стили для всех ссылок в списке контактов */
+  font-size: 24px;
+  font-weight: 400;
+  color: #e5e5e5;
+  text-decoration: none;
+}
+
+/* .contacts__list:hover a {
+  color: #ffca62;
+}
+
+.contacts__list:active a {
+  color: #ffffff;
+} */
+
+.contacts__phone {
+  height: 30px;
+  padding-left: 60px;
+  background: url(../../assets/icon/contacts/phone.svg) no-repeat;
+  background-size: contain;
+}
+
+.contacts__email {
+  height: 30px;
+  padding-left: 60px;
+  background: url(../../assets/icon/contacts/email.svg) no-repeat;
+  background-size: 30px 24px;
+}
+
+.contacts__skype {
+  height: 30px;
+  padding-left: 60px;
+  background: url(../../assets/icon/contacts/skype.svg) no-repeat;
+  background-size: contain;
+}
+
+.contacts__address {
+  height: 30px;
+  padding-left: 60px;
+  background: url(../../assets/icon/contacts/address.svg) no-repeat;
+  background-size: contain;
+}

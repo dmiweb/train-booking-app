@@ -95,6 +95,16 @@
   cursor: pointer;
 }
 
+.how-it-works-section__header-btn:hover {
+  border: none;
+  color: #2d2b2f;
+  background-color: #ffca62;
+}
+
+.how-it-works-section__header-btn:active {
+  background-color: #ffffff;
+}
+
 .how-it-works-section__advantages-group {
   display: flex;
   justify-content: center;
