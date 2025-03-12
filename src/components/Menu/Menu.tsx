@@ -4,10 +4,10 @@ import "./Menu.css";
 const Menu = () => {
   return (
     <nav className="menu">
-      <Link to="#" className="menu__item">О нас</Link>
-      <Link to="#" className="menu__item">Как это работает</Link>
-      <Link to="#" className="menu__item">Отзывы</Link>
-      <Link to="#" className="menu__item">Контакты</Link>
+      <a href="#about" className="menu__item">О нас</a>
+      <a href="#how-it-works" className="menu__item">Как это работает</a>
+      <a href="#reviews" className="menu__item">Отзывы</a>
+      <a href="#footer" className="menu__item">Контакты</a>
     </nav>
   );
 }

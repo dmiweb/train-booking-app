@@ -1,0 +1,17 @@
+.order-tickets-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 596px;
+  background: url(../../assets/img/order-tickets-background.jpg) no-repeat;
+  background-size: cover;
+}
+
+.order-tickets-section__container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1490px;
+  height: 350px;
+  padding: 28px 44px;
+  background-color: rgba(41, 41, 41, 0.69);
+}

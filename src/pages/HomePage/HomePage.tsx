@@ -1,4 +1,4 @@
-import { SloganCompany, TicketSearchForm, ProgressBar } from "../../components";
+import { SloganCompany, TicketSearchForm, LoadingProgressBar } from "../../components";
 import "./HomePage.css";
 import advantagesGroup1 from "../../assets/icon/advantages-group-1.svg";
 import advantagesGroup2 from "../../assets/icon/advantages-group-2.svg";
@@ -15,9 +15,9 @@ const HomePage = () => {
           <TicketSearchForm className="ticket-search-form ticket-search-form--homepage" />
         </div>
       </section>
-      <ProgressBar />
+      <LoadingProgressBar />
 
-      <section className="about-section">
+      <section id="about" className="about-section">
         <h2 className="about-section__title">О нас</h2>
         <div className="about-section__container">
           <p className="about-section__text">Мы рады видеть вас! Мы рботаем для Вас с 2003 года. 14 лет мы наблюдаем, как с каждым днем
@@ -29,7 +29,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="how-it-works-section">
+      <section id="how-it-works" className="how-it-works-section">
         <div className="how-it-works-section__header">
           <h2 className="how-it-works-section__header-title">Как это работает</h2>
           <button type="button" className="how-it-works-section__header-btn">Узнать больше</button>
@@ -62,7 +62,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="reviews-section">
+      <section id="reviews" className="reviews-section">
         <h2 className="reviews-section__title">Отзывы</h2>
 
         <div className="reviews-slider">
@@ -84,7 +84,6 @@ const HomePage = () => {
           </div>
         </div>
         <div className="reviews-slider__navigation-dots"></div>
-
       </section>
     </>
   );

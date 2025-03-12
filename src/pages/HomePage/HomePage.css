@@ -5,7 +5,7 @@
   gap: 104px;
   height: 985px;
   padding-right: 232px;
-  background-image: url(../../assets/img/order-tickets-background.webp);
+  background-image: url(../../assets/img/order-tickets-background-homepage.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
@@ -13,12 +13,16 @@
 
 .order-tickets-section-homepage__container {
   display: flex;
-  align-items: flex-end;
-  box-sizing: border-box;
+  align-items: flex-start;
+  box-sizing: border-box;                                                                                                 
   width: 729px;
   height: 574px;
-  padding: 0 20px;
+  padding: 80px 24px 0;
   background-color: rgba(41, 41, 41, 0.8);
+}
+
+.order-tickets-section-homepage__container .ticket-search-form__submit-btn {
+  margin-top: 40px;
 }
 
 /* About Section */

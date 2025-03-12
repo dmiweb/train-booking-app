@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { HomePage } from './pages';
+import { HomePage, TrainSelectionPage } from './pages';
 import { Layout } from './components';
 import "./assets/css/normalize.css"
 import './App.css';
@@ -9,7 +9,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        {/* <Route path="/catalog" element={<CatalogPage />} /> */}
+        <Route path="/trains" element={<TrainSelectionPage />} />
         {/* <Route path="/catalog/:id" element={<ProductPage />} /> */}
         {/* <Route path="/about" element={<AboutPage />} /> */}
         {/* <Route path="/contacts" element={<ContactsPage />} /> */}

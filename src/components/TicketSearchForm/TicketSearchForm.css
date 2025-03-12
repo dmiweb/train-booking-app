@@ -1,4 +1,10 @@
-/* .ticket-search-form {} */
+.ticket-search-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 34px;
+
+}
 
 .ticket-search-form--homepage {
   display: flex;
@@ -9,24 +15,38 @@
 }
 
 .ticket-search-form__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
+  /* width: 48%; */
 }
 
 .ticket-search-form__container-title {
-  flex: 1 1 100%;
+  display: block;
   padding-bottom: 7px;
   font-size: 30px;
   font-weight: 300;
   color: #ffffff;
 }
 
-.ticket-search-form__input {
-  flex: 0 1 47%;
-  box-sizing: border-box;
+.ticket-search-form__direction-fields {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   width: 100%;
+}
+
+.ticket-search-form__date-fields {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  width: 100%;
+}
+
+.ticket-search-form__input {
+  box-sizing: border-box;
+  width: 325px;
   height: 60px;
   border-radius: 4px;
   font-size: 20px;
@@ -35,17 +55,23 @@
 }
 
 .ticket-search-form__swap-btn {
-  flex: 0 1 24px;
   width: 24px;
   height: 24px;
   border: none;
   background-color: transparent;
-  background-image: url(../../assets/icon/swap.svg);
+  background: url(../../assets/icon/swap.svg) no-repeat;
+  background-size: cover;
+  background-position: center;
   cursor: pointer;
 }
 
+.ticket-search-form__container-submit-btn {
+  flex: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .ticket-search-form__submit-btn {
-  align-self: flex-end;
   width: 323px;
   height: 60px;
   border-radius: 5px;

@@ -4,7 +4,9 @@ export { default as Menu } from './Menu/Menu';
 export { default as Layout } from './Layout/Layout';
 export { default as SloganCompany } from './SloganCompany/SloganCompany';
 export { default as TicketSearchForm } from './TicketSearchForm/TicketSearchForm';
-export { default as ProgressBar } from './ProgressBar/ProgressBar';
+export { default as LoadingProgressBar } from './LoadingProgressBar/LoadingProgressBar';
+
+export { default as OrderProgressBar } from './OrderProgressBar/OrderProgressBar';
 
 export { default as Footer } from './Footer/Footer';
 export { default as Contacts } from './Contacts/Contacts';
