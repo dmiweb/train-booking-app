@@ -1,11 +1,16 @@
+export { default as Layout } from './Layout/Layout';
+export { default as OrderLayout } from './OrderLayout/OrderLayout';
+
 export { default as Header } from './Header/Header';
 export { default as Logo } from './Logo/Logo';
 export { default as Menu } from './Menu/Menu';
-export { default as Layout } from './Layout/Layout';
 export { default as SloganCompany } from './SloganCompany/SloganCompany';
+
+export { default as FilterPanel } from './FilterPanel/FilterPanel';
+export { default as FilterOptions } from './FilterPanel/FilterOptions';
+
 export { default as TicketSearchForm } from './TicketSearchForm/TicketSearchForm';
 export { default as LoadingProgressBar } from './LoadingProgressBar/LoadingProgressBar';
-
 export { default as OrderProgressBar } from './OrderProgressBar/OrderProgressBar';
 
 export { default as Footer } from './Footer/Footer';
