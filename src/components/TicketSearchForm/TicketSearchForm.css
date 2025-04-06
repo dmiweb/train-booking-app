@@ -14,13 +14,13 @@
   margin-bottom: 80px;
 }
 
-.ticket-search-form__container {
+/* .ticket-search-form__container { */
   /* display: flex; */
   /* justify-content: space-between; */
   /* align-items: center; */
   /* flex-wrap: wrap; */
   /* width: 48%; */
-}
+/* } */
 
 .ticket-search-form__container-title {
   display: block;

@@ -1,0 +1,55 @@
+.train-list-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 48px;
+  font-size: 18px;
+  color: #928f94;
+}
+
+.found-trains {
+  margin-right: auto;
+}
+
+.found-trains__title {
+  padding-right: 6px;
+
+}
+
+/* .found-trains__count {} */
+
+/* .sorting-by {} */
+
+.sorting-by__title {
+  padding-right: 6px;
+}
+
+.sorting-by__select-menu {
+  border: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+.sorting-by__select-menu-item {
+  position: absolute;
+  /* font-size: 30px; */
+   width: 139px;
+   border-bottom: 1px solid #000000;
+   border-radius: 0 !important;
+   padding: 20px;
+   /* text-align: center; */
+}
+
+/* .show-by {} */
+
+.show-by__title {
+  padding-right: 6px;
+}
+
+.show-by__count {
+  padding-right: 8px;
+  cursor: pointer;
+}

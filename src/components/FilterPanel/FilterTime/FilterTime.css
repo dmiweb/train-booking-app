@@ -1,0 +1,148 @@
+.filter-time {
+  padding: 24px 34px 30px 26px;
+}
+
+.filter-time__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  height: 35px;
+}
+
+.filter-time__header-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 26px;
+  border-radius: 5px;
+  background-color: #ffa800;
+}
+
+.filter-time__header-icon-arrow-outbound,
+.filter-time__header-icon-arrow-inbound {
+  position: relative;
+  width: 14px;
+  height: 2px;
+  background: #3e3c41;
+}
+
+.filter-time__header-icon-arrow-outbound:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -5px;
+  left: 60%;
+  border-width: 6px 0 6px 7px;
+  border-style: solid;
+  border-color: transparent #3e3c41;
+}
+
+.filter-time__header-icon-arrow-inbound::before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -5px;
+  right: 60%;
+  border-width: 6px 7px 6px 0;
+  border-style: solid;
+  border-color: transparent #3e3c41;
+}
+
+.filter-time__header-title {
+  padding-left: 12px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.filter-time__header-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.filter-time__header-checkbox {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+}
+
+.filter-time__header-toggle-show-body {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-time__header-toggle-show-body::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 75%;
+  background-color: #ffffff;
+}
+
+.filter-time__header-toggle-show-body::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+.filter-time__header-checkbox:checked+.filter-time__header-toggle-show-body {
+  border-color: #c4c4c4;
+}
+
+.filter-time__header-checkbox:checked+.filter-time__header-toggle-show-body::before {
+  visibility: hidden;
+}
+
+.filter-time__header-checkbox:checked+.filter-time__header-toggle-show-body::after {
+  background-color: #c4c4c4;
+}
+
+.filter-time__body {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  padding: 22px 0 14px 0;
+}
+
+.filter-time__body--hidden {
+  display: none;
+}
+
+.filter-time__departure {
+  padding-bottom: 45px;
+}
+
+.filter-time__departure__title {
+  padding-bottom: 15px;
+  font-size: 24px;
+  color: #e5e5e5;
+}
+
+.filter-time__arrival {
+  padding-bottom: 30px;
+}
+
+.filter-time__arrival__title {
+  padding-bottom: 15px;
+  text-align: end;
+  font-size: 24px;
+  color: #e5e5e5;
+}

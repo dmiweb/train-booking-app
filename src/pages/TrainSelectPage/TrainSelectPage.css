@@ -22,4 +22,10 @@
   display: flex;
   justify-content: center;
   gap: 83px;
+  margin-top: 95px;
+}
+
+.main-train-selection-page {
+  width: 100%;
+  max-width: 960px;
 }

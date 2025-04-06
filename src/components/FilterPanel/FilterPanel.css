@@ -3,10 +3,14 @@
   background-color: #3e3c41;
 }
 
-.filter-panel__form {}
+/* .filter-panel__form {} */
 
 .filter-panel__container {
   border-bottom: 1px solid #e5e5e5;
+}
+
+.filter-panel__container:last-child {
+  border-bottom: none;
 }
 
 .filter-dates {
@@ -59,40 +63,43 @@
 
 .filter-options__coupe-title {
   padding-left: 51px;
-  /* line-height: 1.5; */
   background: url(./img/options/coupe.svg) no-repeat;
-  background-position: left center; 
+  background-position: left center;
 }
+
 .filter-options__reserved-seat-title {
   padding-left: 51px;
-  /* line-height: 1.5; */
   background: url(./img/options/reserved-seat.svg) no-repeat;
-  background-position: left center; 
+  background-position: left center;
 }
+
 .filter-options__seating-places-title {
   padding-left: 51px;
   background: url(./img/options/seating-places.svg) no-repeat;
-  background-position: left center; 
+  background-position: left center;
 }
+
 .filter-options__lux-title {
   padding-left: 51px;
   background: url(./img/options/lux.svg) no-repeat;
-  background-position: left center; 
+  background-position: left center;
 }
+
 .filter-options__wi-fi-title {
   padding-left: 51px;
   background: url(./img/options/wi-fi.svg) no-repeat;
-  background-position: left center; 
+  background-position: left center;
 }
+
 .filter-options__express-title {
   padding-left: 51px;
   line-height: 1.5;
   background: url(./img/options/express.svg) no-repeat;
-  background-position: left center; 
+  background-position: left center;
 }
 
 
-/* toggle-switch */
+/* FilterOptions */
 .toggle-switch {
   position: relative;
   display: inline-block;
@@ -131,17 +138,38 @@
   transition: .4s;
 }
 
-.toggle-switch__checkbox:checked + .toggle-switch__slider {
+.toggle-switch__checkbox:checked+.toggle-switch__slider {
   background-color: #fcdc9d;
 }
 
-.toggle-switch__checkbox:focus + .toggle-switch__slider {
+.toggle-switch__checkbox:focus+.toggle-switch__slider {
   box-shadow: 0 0 5px #2196F3;
 }
 
-.toggle-switch__checkbox:checked + .toggle-switch__slider .toggle-switch__thumb {
+.toggle-switch__checkbox:checked+.toggle-switch__slider .toggle-switch__thumb {
   transform: translateX(46px);
   background-color: #ffa800;
 }
 
+/********** FilterPrices **********/
+.filter-prices {
+  padding: 37px 34px 58px 32px;
+}
 
+.filter-prices__title {
+  padding-bottom: 14px;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.filter-prices__range-name {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px 5px;
+}
+
+.filter-prices__range-name-from,
+.filter-prices__range-name-to {
+  font-size: 18px;
+  color: #ffffff;
+}

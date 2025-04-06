@@ -1,0 +1,329 @@
+.details-trip-panel {
+  width: 360px;
+  background-color: #3e3c41;
+}
+
+.details-trip-panel__header {
+  margin: 0;
+  padding: 35px 0 43px 0;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  color: #e5e5e5;
+  text-transform: uppercase;
+}
+
+
+/* Информация о поездке */
+.details-trip-panel__trip {
+  border-top: 1px solid #e5e5e5;
+}
+
+.details-trip-panel__trip-wrap {
+  padding: 0 28px 54px;
+}
+
+.details-trip-panel__trip-direction {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  position: relative;
+  margin-bottom: 5px;
+  padding-top: 16px;
+  /* position: relative; */
+  /* height: 35px; */
+}
+
+.details-trip-panel__trip-direction-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative; */
+  /* top: -1px; */
+  width: 32px;
+  height: 26px;
+  margin-right: 12px;
+  border-radius: 5px;
+  background-color: #ffa800;
+}
+
+.details-trip-panel__trip-direction-title {
+  position: relative;
+  top: 2px;
+  height: 35px;
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: 16px;
+  padding-bottom: 9px;
+  color: #ffffff;
+}
+
+.details-trip-panel__trip-date {
+  position: relative;
+  top: 3px;
+  margin-right: auto;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.details-trip-panel__header-label {
+  /* position: absolute; */
+  right: 0;
+  bottom: 0;
+}
+
+.details-trip-panel__header-checkbox {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+
+  &:checked+.details-trip-panel__header-toggle-btn {
+    border-color: #ffffff;
+  }
+}
+
+.details-trip-panel__header-toggle-btn {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c4c4c4;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Информация о поезде */
+.details-trip-panel__trip-train-info {
+  margin-bottom: 5px;
+}
+
+/* Информация о времени */
+.details-trip-panel__trip-time-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.details-trip-panel__trip-time-separator {
+  position: relative;
+  width: 20px;
+  text-align: center;
+}
+
+.details-trip-panel__trip-time-separator::before {
+  content: '\2192';
+  /* Unicode для стрелки вправо */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Информация о городах */
+.details-trip-panel__trip-city-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Информация о пассажирах */
+.details-trip-panel__passengers {
+  margin-bottom: 15px;
+}
+
+/* Итоговая стоимость */
+.details-trip-panel__total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+.details-trip-panel__trip-train-info {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 50px;
+}
+
+.details-trip-panel__trip-train {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.details-trip-panel__trip-train-title {
+  font-size: 18px;
+  color: #e5e5e5;
+}
+
+.details-trip-panel__trip-train-number {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.details-trip-panel__trip-train-name {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: end;
+  color: #ffffff;
+}
+
+.details-trip-panel__trip-time-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 71px;
+}
+
+.details-trip-panel__trip-time-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.details-trip-panel__trip-departure-time {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.details-trip-panel__trip-departure-date {
+  font-size: 18px;
+  color: #928f94;
+}
+
+.details-trip-panel__trip-total-time {
+  position: relative;
+  top: -23px;
+  padding-bottom: 7px;
+  font-size: 18px;
+  color: #e5e5e5;
+
+  &+svg {
+    position: relative;
+    top: -23px;
+  }
+}
+
+.details-trip-panel__trip-arrival-time {
+  font-size: 24px;
+  text-align: end;
+  color: #ffffff;
+}
+
+.details-trip-panel__trip-arrival-date {
+  font-size: 18px;
+  color: #928f94;
+  text-align: end;
+}
+
+.details-trip-panel__trip-city-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.details-trip-panel__trip-city-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.details-trip-panel__trip-departure-city {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.details-trip-panel__trip-departure-station {
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  /* flex-wrap: wrap; */
+  width: 30%;
+  /* margin-right: auto; */
+  font-size: 16px;
+  color: #928f94;
+}
+
+.details-trip-panel__trip-arrival-city {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.details-trip-panel__trip-arrival-station {
+  display: flex;
+  justify-content: flex-end;
+  width: 30%;
+  text-align: end;
+  margin-left: auto;
+  font-size: 16px;
+  color: #928f94;
+  text-align: end;
+}
+
+
+
+.details-trip-panel__passengers-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 33px 28px 46px;
+}
+
+.details-trip-panel__passengers-summary-adults,
+.details-trip-panel__passengers-summary-children {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details-trip-panel__passengers-summary-person-count {
+  font-size: 18px;
+  color: #e5e5e5;
+}
+
+.details-trip-panel__passengers-summary-sum-num {
+  padding-right: 7px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+
+
+
+.details-trip-panel__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 30px 28px 33px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.details-trip-panel__total-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.details-trip-panel__total-price {
+  display: flex;
+  align-items: flex-end;
+}
+
+.details-trip-panel__total-price-number {
+  position: relative;
+  top: 5px;
+  padding-right: 8px;
+  font-size: 48px;
+  font-weight: 700;
+  color: #faa800;
+
+  &+svg {
+    position: relative;
+    top: -3px;
+  }
+}

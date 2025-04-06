@@ -1,4 +1,4 @@
-.subscription {}
+/* .subscription {} */
 
 .subscription__title {
   margin: 0;
@@ -8,9 +8,9 @@
   color: #ffffff;
 }
 
-.subscription__form {}
+/* .subscription__form {} */
 
-.subscription__form-label {}
+/* .subscription__form-label {} */
 
 .subscription__form-label-text {
   display: block;
@@ -89,12 +89,12 @@
   fill: #ffca62;
 }
 
-.subscription__social-youtube {}
+/* .subscription__social-youtube {} */
 
-.subscription__social-linkedin:active {}
+/* .subscription__social-linkedin:active {} */
 
-.subscription__social-google-plus:active {}
+/* .subscription__social-google-plus:active {} */
 
-.subscription__social-facebook:active {}
+/* .subscription__social-facebook:active {} */
 
-.subscription__social-twitter:active {}
+/* .subscription__social-twitter:active {} */

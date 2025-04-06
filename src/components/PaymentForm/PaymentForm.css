@@ -1,0 +1,161 @@
+.payment {
+  border: 1px solid #c4c4c4;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+}
+
+.payment__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 107px;
+  padding: 0 40px 0 35px;
+  background-color: #f9f9f9;
+}
+
+.payment__title {
+  font-size: 30px;
+  font-weight: 400;
+  color: #292929;
+}
+
+.payment__form {
+  padding: 30px 36px 32px;
+  border-top: 1px dotted #928f94;
+}
+
+.payment__form-row {
+  display: flex;
+}
+
+.payment__field {
+  padding: 0;
+}
+
+.payment__label {
+  display: block;
+  padding-bottom: 15px;
+  color: #928f94;
+}
+
+.payment__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid #928f94;
+  border-radius: 5px;
+  font-size: 24px;
+  color: #292929;
+  outline: none;
+}
+
+.payment__full-name {
+  gap: 25px;
+
+  & .payment__field {
+    width: 100%;
+  }
+}
+
+.payment__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  width: 360px;
+  margin-top: 54px;
+}
+
+.payment__type-header {
+  position: relative;
+  left: -35px;
+  width: calc(100% + 35px);
+  padding: 0 0 0 35px;
+  margin-top: 88px;
+  border-top: 1px dotted #928f94;
+}
+
+.payment__type-online {
+  position: relative;
+  left: -35px;
+  width: calc(100% + 35px);
+  padding: 50px 0 64px 35px;
+  border-top: 1px dotted #928f94;
+}
+
+.payment__type-online-option {
+  display: inline-block;
+  padding: 30px 112px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #292929;
+  vertical-align: top;
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.payment__type-cash {
+  position: relative;
+  left: -35px;
+  width: calc(100% + 35px);
+  padding: 58px 0 64px 35px;
+  border-top: 1px dotted #928f94;
+}
+
+.payment__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.payment__checkbox {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+
+  &:checked+.payment__checkbox-overlay {
+    border-color: #ffa800;
+    background: url(./img/mark.svg) no-repeat center;
+  }
+}
+
+.payment__checkbox-overlay {
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #928F94;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.payment__checkbox-title {
+  font-size: 24px;
+  color: #928f94;
+}
+
+
+.payment__next-button {
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  transform: translateX(-100%);
+  margin-top: 153px;
+  padding: 12px 34px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #ffa800;
+  cursor: pointer;
+
+  &:hover {
+    border-color: transparent;
+    color: #ffffff;
+    background-color: #ffa800;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}

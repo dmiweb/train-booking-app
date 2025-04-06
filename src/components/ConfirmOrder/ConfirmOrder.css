@@ -1,0 +1,178 @@
+/* .confirm {} */
+
+.confirm__row {
+  display: flex;
+}
+
+.confirm__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirm__container {
+  margin-bottom: 45px;
+  border: 1px solid #c4c4c4;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.confirm__header {
+  display: flex;
+  align-items: center;
+  height: 95px;
+  padding: 0 40px 0 35px;
+  border-bottom: 1px solid #c4c4c4;
+  background-color: #ffffff;
+}
+
+.confirm__title {
+  font-size: 30px;
+  font-weight: 400;
+  color: #292929;
+}
+
+.confirm__train {
+  & .train {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+/* .confirm__passengers {} */
+
+.confirm__column-passengers {
+  flex-grow: 1;
+}
+
+.confirm__passengers-person {
+  display: flex;
+  gap: 32px;
+  padding: 30px 28px 25px 30px;
+  border-top: 1px solid #e5e5e5;
+
+  &:first-child {
+    padding-top: 60px;
+    border-top: none;
+  }
+}
+
+.confirm__person-age-group-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #ffa800;
+}
+
+.confirm__person-age-group-name {
+  padding-top: 17px;
+  font-size: 18px;
+  text-align: center;
+  color: #292929;
+}
+
+/* .confirm__person-info {} */
+
+.confirm__person-full-name {
+  padding-bottom: 17px;
+  font-size: 18px;
+  color: #292929;
+}
+
+.confirm__person-gender,
+.confirm__person-birthdata,
+.confirm__person-document {
+  padding-bottom: 12px;
+  font-size: 18px;
+  color: #928f94;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.confirm__column-price {
+  justify-content: flex-end;
+  padding: 0 23px 25px 25px;
+  border-left: 1px solid #e5e5e5;
+}
+
+.confirm__total-price {
+  display: flex;
+  padding: 28px 0;
+
+  & svg {
+    position: relative;
+    top: 2px;
+  }
+}
+
+.confirm__total-price-title {
+  margin-right: auto;
+  font-size: 30px;
+  color: #292929;
+}
+
+.confirm__total-price-num {
+  padding-right: 7px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #292929;
+}
+
+.confirm__column-payment {
+  padding: 44px 23px 21px 33px;
+  
+  & button {
+    align-self: flex-end;
+  }
+}
+
+.confirm__payment-type {
+  font-size: 24px;
+  color: #292929;
+}
+
+
+.confirm__change-button {
+  height: 40px;
+  padding: 0 60px;
+  border: 1px solid #292929;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #292929;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.confirm__next-button {
+  box-sizing: border-box;
+  position: relative;
+  left: 100%;
+  transform: translateX(-100%);
+  margin-top: 123px;
+  padding: 12px 34px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #ffa800;
+  cursor: pointer;
+
+  &:hover {
+    border-color: transparent;
+    color: #ffffff;
+    background-color: #ffa800;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}

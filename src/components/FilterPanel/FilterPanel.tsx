@@ -1,10 +1,12 @@
-import { FilterOptions } from "../../components";
+// import { useState } from "react";
+import { FilterOptions, DoubleRangeSlider, FilterTime } from "../../components";
 import "./FilterPanel.css";
 
 const FilterPanel = () => {
+
   return (
     <>
-      <section className="filter-panel" aria-label="Набор фильтров">
+      <section className="filter-panel" aria-label="Набор фильтров поездки">
         <form className="filter-panel__form">
           <div className="filter-panel__container">
             <div className="filter-dates">
@@ -26,21 +28,31 @@ const FilterPanel = () => {
           <div className="filter-panel__container">
             <div className="filter-prices">
               <div className="filter-prices__title">Стоимость</div>
-
-
-              <div className="range-slider">
-                
-                <input type="range" id="lower" onInput="upper.value=this.value<this.max?this.value:upper.value" min="0" max="100" step="1" />
-                  <input type="range" id="upper" onInput="lower.value=this.value>lower.min?this.value:lower.value" min="0" max="100" step="1" />
-                  </div>
-
+              
+              <div className="filter-prices__range-name">
+                <span className="filter-prices__range-name-from">от</span>
+                <span className="filter-prices__range-name-to">до</span>
               </div>
+
+              <DoubleRangeSlider
+                min={1511}
+                max={10733}
+                step={1}
+                trackHeight={19}
+                thumbWidth={24}
+                thumbGap={10}
+                type="number"
+              />
             </div>
+          </div>
 
+          <div className="filter-panel__container">
+            <FilterTime title="Туда" direction="outbound" />
+          </div>
 
-            <div className="filter-panel__container fp-form-time-outbound"></div>
-            <div className="filter-panel__container fp-form-time-inbound"></div>
-
+          <div className="filter-panel__container">
+            <FilterTime title="Обратно" direction="inbound" />
+          </div>
         </form>
 
       </section>
