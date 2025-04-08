@@ -1,0 +1,28 @@
+.search-city-list {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  margin: 5px 0 0;
+  padding: 14px 28px 14px 22px;
+  border-radius: 3px;
+  background-color: #F5F4F6;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  list-style: none;
+}
+
+.search-city-list__item {
+
+}
+
+.search-city-list__item-text{
+  font-size: 18px;
+  line-height: 1.5;
+  color: #292929;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    color: #ffa800;
+  }
+}

@@ -1,3 +1,5 @@
+export { default as Input } from './Input/Input';
+
 export { default as Layout } from './Layout/Layout';
 export { default as OrderLayout } from './OrderLayout/OrderLayout';
 
@@ -7,6 +9,9 @@ export { default as Menu } from './Menu/Menu';
 export { default as SloganCompany } from './SloganCompany/SloganCompany';
 
 export { default as TicketSearchForm } from './TicketSearchForm/TicketSearchForm';
+export { default as SearchCity } from './TicketSearchForm/SearchCity/SearchCity';
+
+
 export { default as LoadingProgressBar } from './LoadingProgressBar/LoadingProgressBar';
 export { default as OrderProgressBar } from './OrderProgressBar/OrderProgressBar';
 

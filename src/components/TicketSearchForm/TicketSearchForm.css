@@ -37,6 +37,11 @@
   width: 100%;
 }
 
+.ticket-search-form__direction-fields-wrap {
+  position: relative;
+
+}
+
 .ticket-search-form__date-fields {
   display: flex;
   align-items: center;
@@ -48,10 +53,17 @@
   box-sizing: border-box;
   width: 325px;
   height: 60px;
+  padding: 0 19px;
   border-radius: 4px;
   font-size: 20px;
   font-weight: 400;
   color: #292929;
+  text-transform: capitalize;
+
+  &::placeholder {
+    color: #e5e5e5;
+    text-transform: capitalize;
+  }
 }
 
 .ticket-search-form__swap-btn {

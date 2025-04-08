@@ -17,6 +17,20 @@ const TrainListToolbar = () => {
         </select>
       </div>
 
+      {/* <div class="custom-select">
+        <div class="custom-select__trigger">Выберите опцию</div>
+        <div class="custom-select__options">
+          <div class="custom-select__option" data-value="1">Опция 1</div>
+          <div class="custom-select__option" data-value="2">Опция 2</div>
+          <div class="custom-select__option" data-value="3">Опция 3</div>
+        </div>
+        <select class="hidden-select">
+          <option value="1">Опция 1</option>
+          <option value="2">Опция 2</option>
+          <option value="3">Опция 3</option>
+        </select>
+      </div> */}
+
       <div className="show-by">
         <span className="show-by__title">показывать по:</span>
         <span className="show-by__count">5</span>
