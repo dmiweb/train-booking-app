@@ -47,7 +47,7 @@ const SecondClassCoach = ({ direction, coachId, coachNumber, availableSeats, top
   }
 
   const onSelectSeat = (seat: number) => {
-    if (!activeTypeSeat.from || activeTypeSeat.to) {
+    if (!activeTypeSeat[direction]) {
       dispatch(setOpenModal());
       return;
     }

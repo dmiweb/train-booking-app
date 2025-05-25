@@ -22,8 +22,6 @@ const SelectSeats = ({ direction, train, seats }: SelectSeatsProps) => {
     [direction: string]: { [coachType: string]: boolean }
   }>({});
 
-  // console.log(seats)
-
   const { activeTypeCoach, selectedSeats } = useAppSelector(state => state.seats)
   const navigate = useNavigate();
 

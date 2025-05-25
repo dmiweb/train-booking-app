@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../hooks";
-import { setCloseModal } from "../../slices/modalSlice";
+import { setOpenModal, setCloseModal } from "../../slices/modalSlice";
 import { requestLastTickets } from "../../slices/lastTicketsSlice";
 import { requestSeats } from "../../slices/seatsSlice";
 import { TTrain, TLastTicket } from "../../models";
@@ -22,6 +22,15 @@ const SeatsSelectPage = () => {
     dispatch(requestSeats());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (error) {
+      dispatch(setOpenModal());
+    } else {
+      dispatch(setCloseModal());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error]);
 
   const renders = {
     lastTicket: useCallback(
