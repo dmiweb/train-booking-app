@@ -49,7 +49,7 @@ const SeatsSelectPage = () => {
               handlerMessageBtn={() => dispatch(requestSeats())}
             />}
 
-          {isOpen && (!activeTypeSeat.from || !activeTypeSeat.to) &&
+          {isOpen && !error && (!activeTypeSeat.from || !activeTypeSeat.to) &&
             <MessageWidget typeMessage="info"
               title="Выберите тип билета!"
               text="Перед выбором места, выберите тип билета - взрослый, детский или детский без места."
