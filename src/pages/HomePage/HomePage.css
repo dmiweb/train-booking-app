@@ -14,7 +14,7 @@
 .order-tickets-section-homepage__container {
   display: flex;
   align-items: flex-start;
-  box-sizing: border-box;                                                                                                 
+  box-sizing: border-box;
   width: 729px;
   height: 574px;
   padding: 80px 24px 0;
@@ -27,6 +27,11 @@
 
 /* About Section */
 .about-section {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.about-section__wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -112,7 +117,6 @@
 .how-it-works-section__advantages-group {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   gap: 200px;
   margin-top: 97px;
   width: 100%;
@@ -141,8 +145,12 @@
   color: #ffffff;
 }
 
-/* Reviews Section */
 .reviews-section {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.reviews-section__wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -159,8 +167,6 @@
   color: #292929;
   text-transform: uppercase;
 }
-
-/* .reviews-slider {} */
 
 .reviews-slider__slide {
   display: flex;
@@ -217,7 +223,7 @@
   max-width: 140px;
   height: 19px;
   margin: 150px auto 0;
-  background-image: url(../../assets/img/icon/navigation-dots.png);
+  background-image: url(../../assets/icon/navigation-dots.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

@@ -17,21 +17,23 @@
   list-style: none;
 }
 
+/* Стили для всех ссылок в списке контактов */
 .contacts__list a {
-  /* Стили для всех ссылок в списке контактов */
   font-size: 24px;
   font-weight: 400;
   color: #e5e5e5;
   text-decoration: none;
 }
 
-/* .contacts__list:hover a {
-  color: #ffca62;
-}
+.contacts__item a {
+  &:hover {
+    color: #ffca62;
+  }
 
-.contacts__list:active a {
-  color: #ffffff;
-} */
+  &:active {
+    color: #ffffff;
+  }
+}
 
 .contacts__phone {
   height: 30px;

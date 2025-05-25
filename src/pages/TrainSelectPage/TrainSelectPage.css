@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  /* position: absolute; */
   width: 100%;
   height: 596px;
   background: url(../../assets/img/order-tickets-background.jpg) no-repeat;
@@ -23,6 +22,7 @@
   justify-content: center;
   gap: 83px;
   margin-top: 95px;
+  margin-bottom: 193px;
 }
 
 .main-train-selection-page {

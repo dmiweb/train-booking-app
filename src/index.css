@@ -11,6 +11,7 @@ html {
 
 body {
   width: 100%;
+  background-color: #f4f2f6;
 }
 
 #root {
@@ -25,7 +26,7 @@ body {
 }
 
 ::-webkit-input-placeholder {
-  color: e5e5e5;
+  color: #e5e5e5;
 }
 
 ::-moz-placeholder {
@@ -35,4 +36,10 @@ body {
 
 :-ms-input-placeholder {
   color: #e5e5e5;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-outer-spin-button {
+    display: none;
 }

@@ -1,26 +1,46 @@
-// import { useState } from 'react';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { updateOrder, submitOrder } from '../../slices/orderSlice';
 import { useNavigate } from 'react-router-dom';
-import { Train } from '../../components';
-import { PassengerIconSvg, СurrencyIconSvg } from '../icons';
+import { TTrain, TPassengerInfo } from '../../models';
+import { Train, Button } from '../../components';
+import { PassengerIconSvg, CurrencyIconSvg } from '../icons';
+import { convertFormatDate } from '../../utils/convertFormatDate';
 import './ConfirmOrder.css';
 
-const ConfirmOrder = () => {
+type ConfirmOrderProps = {
+  selectedTrain: TTrain;
+  seats: TPassengerInfo[];
+}
+
+const ConfirmOrder = ({ selectedTrain, seats }: ConfirmOrderProps) => {
+  const { selectedSeats } = useAppSelector(state => state.seats);
+  const { owner } = useAppSelector(state => state.order);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleClickButton = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    navigate("/success");
+  const totalPriceFrom = selectedSeats["from"].reduce((sum, seat) => sum + seat.price, 0);
+  const totalPriceTo = (selectedSeats["to"] || []).reduce((sum, seat) => sum + seat.price, 0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleConfirmButton = () => {
+    dispatch(updateOrder(owner));
+    dispatch(submitOrder());
+
+    navigate("/success", { replace: true });
   }
 
   return (
-
     <div className='confirm'>
       <div className='confirm__column'>
         <div className='confirm__container confirm__train'>
           <div className='confirm__header'>
             <h2 className="confirm__title">Поезд</h2>
           </div>
-          <Train />
+          <Train item={selectedTrain} reselect />
         </div>
 
         <div className='confirm__container confirm__passengers'>
@@ -30,43 +50,50 @@ const ConfirmOrder = () => {
 
           <div className='confirm__row'>
             <div className='confirm__column confirm__column-passengers'>
-              <div className='confirm__passengers-person'>
-                <div className='confirm__person-age-group'>
-                  <div className='confirm__person-age-group-icon'>
-                    <PassengerIconSvg width={40} fill='#ffffff' />
+              {seats.map((seat, index) => {
+                const { is_adult, first_name, last_name, patronymic, gender, birthday, document_type, document_data } = seat.person_info
+
+                return (
+                  <div key={index} className='confirm__passengers-person'>
+                    <div className='confirm__person-age-group'>
+                      <div className='confirm__person-age-group-icon'>
+                        <PassengerIconSvg width={40} fill='#ffffff' />
+                      </div>
+                      <div className='confirm__person-age-group-name'>
+                        {is_adult ? "Взрослый" : "Детский"}
+                      </div>
+                    </div>
+                    <div className='confirm__person-info'>
+                      <div className='confirm__person-full-name'>
+                        {`${last_name} ${first_name} ${patronymic}`}
+                      </div>
+                      <div className='confirm__person-gender'>
+                        Пол {gender === "male" ? "мужской" : "женский"}
+                      </div>
+                      <div className='confirm__person-birthdata'>
+                        Дата рождения {convertFormatDate(birthday)}
+                      </div>
+                      <div className='confirm__person-document'>
+                        {document_type === "passport" ? "Паспорт РФ" : "Свидетельство о рождении"} {document_data}
+                      </div>
+                    </div>
                   </div>
-                  <div className='confirm__person-age-group-name'>Взрослый</div>
-                </div>
-                <div className='confirm__person-info'>
-                  <div className='confirm__person-full-name'>Мартынюк Ирина Эдуардовна</div>
-                  <div className='confirm__person-gender'>Пол женский</div>
-                  <div className='confirm__person-birthdata'>Дата рождения 17.02.1985</div>
-                  <div className='confirm__person-document'>Паспорт РФ 4204 380694</div>
-                </div>
-              </div>
-              <div className='confirm__passengers-person'>
-                <div className='confirm__person-age-group'>
-                  <div className='confirm__person-age-group-icon'>
-                    <PassengerIconSvg width={40} fill='#ffffff' />
-                  </div>
-                  <div className='confirm__person-age-group-name'>Детский</div>
-                </div>
-                <div className='confirm__person-info'>
-                  <div className='confirm__person-full-name'>Мартынюк Кирилл Сергеевич</div>
-                  <div className='confirm__person-gender'>Пол мужской</div>
-                  <div className='confirm__person-birthdata'>Дата рождения 25.01.2006</div>
-                  <div className='confirm__person-document'>Свидетельство о рождении VIII УН 256319</div>
-                </div>
-              </div>
+                );
+              })}
             </div>
 
             <div className='confirm__column confirm__column-price'>
               <div className='confirm__total-price'>
                 <span className='confirm__total-price-title'>Всего</span>
-                <span className='confirm__total-price-num'>7 760</span>
-                <СurrencyIconSvg code='rub' width={20} fill='#928f94' />
+                <span className='confirm__total-price-num'>{totalPriceFrom + totalPriceTo}</span>
+                <CurrencyIconSvg code='rub' width={20} fill='#928f94' />
               </div>
-              <button className="confirm__change-button">Изменить</button>
+
+              <Button
+                name="Изменить"
+                className="change-btn"
+                handler={() => navigate("/passengers", { replace: true })}
+              />
             </div>
           </div>
         </div>
@@ -76,13 +103,25 @@ const ConfirmOrder = () => {
             <h2 className="confirm__title">Способ оплаты</h2>
           </div>
           <div className="confirm__column confirm__column-payment">
-            <div className='confirm__payment-type'>Наличными</div>
-            <button className="confirm__change-button">Изменить</button>
+            <div className='confirm__payment-type'>
+              {owner.payment_method === "online" ? "Онлайн" : "Наличными"}
+            </div>
+
+            <Button
+              name="Изменить"
+              className="change-btn"
+              handler={() => navigate("/payment", { replace: true })}
+            />
           </div>
         </div>
       </div>
 
-      <button className="confirm__next-button" onClick={handleClickButton}>Подтвердить</button>
+      <div className='confirm__btn-container'>
+        <Button
+          name="Подтвердить"
+          className="confirm-btn"
+          handler={handleConfirmButton} />
+      </div>
     </div>
   );
 }

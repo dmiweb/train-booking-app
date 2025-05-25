@@ -1,44 +1,40 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useAppDispatch } from "../../../hooks";
+import { requestTrains } from "../../../slices/trainSlice";
 import "./DoubleRangeSlider.css";
 
-
 type DoubleRangeSliderProps = {
+  type: "price" | "time";
   min: number;
   max: number;
+  minValue: number;
+  maxValue: number;
   step: number;
   trackHeight: number;
   thumbWidth: number;
   thumbGap: number;
-  type: "number" | "time"
+  onMinChange: (value: number) => void;
+  onMaxChange: (value: number) => void;
 }
 
-
 const DoubleRangeSlider = (props: DoubleRangeSliderProps) => {
-  const { min, max, step, trackHeight, thumbWidth, thumbGap, type } = props;
+  const { type, min, max, minValue, maxValue, step, trackHeight, thumbWidth, thumbGap, onMinChange, onMaxChange } = props;
 
-  const [sliderMinValue] = useState(min);
-  const [sliderMaxValue] = useState(max);
+  const [minVal, setMinVal] = useState(minValue);
+  const [maxVal, setMaxVal] = useState(maxValue);
 
-  const [minVal, setMinVal] = useState(min);
-  const [maxVal, setMaxVal] = useState(max);
+  const [minPercent, setMinPercent] = useState<string>("0%");
+  const [maxPercent, setMaxPercent] = useState<string>("100%");
 
-  const [isDragging, setIsDragging] = useState(false);
-  console.log(isDragging)
-  // const [position, setPosition] = useState(false);
+  const minValRef = useRef(min);
+  const maxValRef = useRef(max);
 
-  const rangeSliderRef = useRef<HTMLDivElement | null>(null);
-  const trackSliderRef = useRef<HTMLDivElement | null>(null);
   const minThumbRef = useRef<HTMLInputElement | null>(null);
   const maxThumbRef = useRef<HTMLInputElement | null>(null);
-  const valueRangeMinRef = useRef<HTMLDivElement | null>(null);
-  const valueRangeMaxRef = useRef<HTMLDivElement | null>(null);
 
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (rangeSliderRef.current) {
-      rangeSliderRef.current.style.height = trackHeight + "px";
-    }
-
     if (minThumbRef.current && maxThumbRef.current) {
       minThumbRef.current.style.setProperty('--thumb-width', `${thumbWidth}px`);
       minThumbRef.current.style.setProperty('--thumb-height', `${thumbWidth}px`);
@@ -46,122 +42,83 @@ const DoubleRangeSlider = (props: DoubleRangeSliderProps) => {
       maxThumbRef.current.style.setProperty('--thumb-height', `${thumbWidth}px`);
     }
 
-    setSliderTrack();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [minVal, maxVal]);
+  }, []);
 
+  useLayoutEffect(() => {
+    minValRef.current = minValue || min;
+    maxValRef.current = maxValue || max;
 
+    const minPercent = ((minValRef.current - min) / (max - min)) * 100;
+    const maxPercent = ((maxValRef.current - min) / (max - min)) * 100;
+
+    setMinPercent(`${minPercent}%`); // min custom track value
+    setMaxPercent(`${maxPercent - minPercent}%`); // max custom track value
+  }, [min, max, minValue, maxValue]);
 
   const slideMin = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value, 10);
-    if (value >= sliderMinValue && maxVal - value >= thumbGap) {
-      setMinVal(value);
+
+    if (value >= min && maxValRef.current - value >= thumbGap) {
+      minValRef.current = value;
+
+      setMinVal(value)
+      onMinChange(+e.target.value);
     }
   };
 
   const slideMax = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value, 10);
-    if (value <= sliderMaxValue && value - minVal >= thumbGap) {
-      setMaxVal(value);
+
+    if (value <= max && value - minValRef.current >= thumbGap) {
+      maxValRef.current = value;
+
+      setMaxVal(value)
+      onMaxChange(+e.target.value);
     }
   };
-
-  const setSliderTrack = () => {
-
-    if (trackSliderRef.current) {
-      const minPercent = ((minVal - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100;
-      const maxPercent = ((maxVal - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100;
-
-      // range.style.left = `${minPercent}%`;
-      // range.style.right = `${100 - maxPercent}%`;
-      trackSliderRef.current.style.left = `${minPercent}%`;
-      trackSliderRef.current.style.width = `${maxPercent - minPercent}%`;
-
-
-
-      // let positionPriceMin = valueRangeMinRef.current.getBoundingClientRect().right;
-      // let positionPriceMax = valueRangeMaxRef.current.getBoundingClientRect().left;
-
-      // if (positionPriceMin >= positionPriceMax) {
-      //   setPosition(true)
-      // } else {
-      //   setPosition(false)
-      // }
-
-      let minPriceLeft = `calc(${minPercent}% - ${thumbWidth / 2}px)`;
-      let maxPriceLeft = `calc(${maxPercent}% - ${thumbWidth}px)`;
-
-      // Если минимальная ручка в крайнем левом положении
-      if (minPercent === 0) {
-        minPriceLeft = `${minPercent}%`; // Выравниваем по левому краю
-      }
-
-      // Если максимальная ручка в крайнем правом положении
-      if (maxPercent === 100) {
-        maxPriceLeft = `calc(${maxPercent}% - ${thumbWidth * 2}px)`; // Выравниваем по правому краю (нужно учесть ширину thumb)
-      }
-
-      if (valueRangeMinRef.current) valueRangeMinRef.current.style.left = minPriceLeft;
-      if (valueRangeMaxRef.current) valueRangeMaxRef.current.style.left = maxPriceLeft;
-    }
-  };
-
-  const startDrag = () => {
-    setIsDragging(true);
-  };
-
-  const stopDrag = () => {
-    setIsDragging(false);
-  };
-
+  
   return (
-    <div className="double-range-slider" ref={rangeSliderRef}>
+    <div className="double-range-slider" style={{ height: trackHeight }}>
       <div className="double-range-slider__track-wrap">
-        <div className="double-range-slider__track" ref={trackSliderRef}></div>
+        <div className="double-range-slider__track" style={{ left: minPercent, width: maxPercent }}></div>
       </div>
 
       <input
         type="range"
         name="min"
-        min={sliderMinValue}
-        max={sliderMaxValue}
-        value={minVal}
+        min={min}
+        max={max}
+        value={minVal !== 0 ? minVal : min}
         onChange={slideMin}
-        onMouseDown={startDrag}
-        onMouseUp={stopDrag}
-        onTouchStart={startDrag}
-        onTouchEnd={stopDrag}
+        onMouseUp={() => dispatch(requestTrains())}
+        onTouchEnd={() => dispatch(requestTrains())}
         step={step}
         ref={minThumbRef}
+        disabled={false}
       />
       <input
         type="range"
         name="max"
-        min={sliderMinValue}
-        max={sliderMaxValue}
-        value={maxVal}
+        min={min}
+        max={max}
+        value={maxVal !== 0 ? maxVal : max}
         onChange={slideMax}
-        onMouseDown={startDrag}
-        onMouseUp={stopDrag}
-        onTouchStart={startDrag}
-        onTouchEnd={stopDrag}
+        onMouseUp={() => dispatch(requestTrains())}
+        onTouchEnd={() => dispatch(requestTrains())}
         step={step}
         ref={maxThumbRef}
+        disabled={false}
       />
 
       <div className="double-range-slider__values">
-        {type === "number" ? <div className="double-range-slider__values-min" ref={valueRangeMinRef}>
-          {minVal}
-        </div> : null}
-        {type === "number" ? <div className="double-range-slider__values-max" ref={valueRangeMaxRef}>
-          {maxVal}
-        </div> : null}
-        {type === "time" ? <div className="double-range-slider__values-min" ref={valueRangeMinRef}>
-          {`${minVal}:00`}
-        </div> : null}
-        {type === "time" ? <div className="double-range-slider__values-max" ref={valueRangeMaxRef}>
-          {`${maxVal}:00`}
-        </div> : null}
+        <div className="double-range-slider__values-min">
+          {`${minVal !== 0 ? minVal : min}${type === "time" ? ":00" : ""}`}
+        </div>
+
+        <div className="double-range-slider__values-max">
+          {`${maxVal !== 0 ? maxVal : max}${type === "time" ? ":00" : ""}`}
+        </div>
       </div>
     </div>
   );

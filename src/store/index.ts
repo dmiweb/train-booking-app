@@ -1,21 +1,27 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-// import catalogReducer from '../slices/catalogSlice';
-// import categoriesReducer from '../slices/categoriesSlice';
+import modalReducer from '../slices/modalSlice';
+import trainReducer from '../slices/trainSlice';
+import queryParamsReducer from '../slices/queryParamsSlice';
+import lastTicketsReducer from '../slices/lastTicketsSlice';
 import citiesReducer from '../slices/citiesSlice';
-// import productReducer from '../slices/productSlice';
-// import cartReducer from '../slices/cartSlice';
+import seatsReducer from '../slices/seatsSlice';
+import passengersReducer from "../slices/passengersSlice"
+import orderReducer from '../slices/orderSlice';
 import rootSaga from '../sagas/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
+    modal: modalReducer,
     cities: citiesReducer,
-    // catalog: catalogReducer,
-    // categories: categoriesReducer,
-    // product: productReducer,
-    // cart: cartReducer
+    trains: trainReducer,
+    queryParams: queryParamsReducer,
+    lastTickets: lastTicketsReducer,
+    seats: seatsReducer,
+    passengers: passengersReducer,
+    order: orderReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });

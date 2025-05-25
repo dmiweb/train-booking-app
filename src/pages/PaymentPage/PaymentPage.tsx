@@ -1,8 +1,28 @@
-import { TicketSearchForm, OrderProgressBar, LoadingProgressBar, DetailsTripPanel, PaymentForm } from "../../components";
-// import { СurrencyIconSvg } from "../../components/icons";
-import "./PaymentPage.css";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { setOrder } from "../../slices/orderSlice";
+import { TicketSearchForm, OrderProgressBar, DetailsTripPanel, PaymentForm } from "../../components";
 
 const PaymentPage = () => {
+  const passengers = useAppSelector(state => state.passengers);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setOrder({
+      user: {
+        first_name: "",
+        last_name: "",
+        patronymic: "",
+        phone: "",
+        email: "",
+        payment_method: "",
+      },
+      departure: passengers.departure,
+      arrival: passengers.arrival,
+    }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <section className="order-tickets-section">
@@ -12,7 +32,6 @@ const PaymentPage = () => {
       </section>
 
       <OrderProgressBar stepNumber={3} />
-      <LoadingProgressBar />
 
       <div className="order-page-wrap">
         <aside className="sidebar">
@@ -20,8 +39,7 @@ const PaymentPage = () => {
         </aside>
 
         <main className="main-select-seats">
-        <PaymentForm />
-
+          <PaymentForm />
         </main>
       </div>
     </>

@@ -1,8 +1,11 @@
-import { TicketSearchForm, OrderProgressBar, LoadingProgressBar, DetailsTripPanel, ConfirmOrder } from "../../components";
-// import { СurrencyIconSvg } from "../../components/icons";
-import "./ConfirmPage.css";
+import { useAppSelector } from '../../hooks';
+import { TTrain } from '../../models';
+import { TicketSearchForm, OrderProgressBar, DetailsTripPanel, ConfirmOrder } from "../../components";
 
 const ConfirmPage = () => {
+  const { selectedTrain } = useAppSelector(state => state.trains);
+  const { seats } = useAppSelector(state => state.passengers.departure);
+
   return (
     <>
       <section className="order-tickets-section">
@@ -12,7 +15,6 @@ const ConfirmPage = () => {
       </section>
 
       <OrderProgressBar stepNumber={4} />
-      <LoadingProgressBar />
 
       <div className="order-page-wrap">
         <aside className="sidebar">
@@ -20,7 +22,11 @@ const ConfirmPage = () => {
         </aside>
 
         <main className="main-select-seats">
-        <ConfirmOrder />
+          {selectedTrain &&
+            <ConfirmOrder
+              selectedTrain={selectedTrain as TTrain}
+              seats={seats}
+            />}
 
         </main>
       </div>

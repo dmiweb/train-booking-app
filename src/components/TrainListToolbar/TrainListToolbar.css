@@ -1,8 +1,8 @@
 .train-list-toolbar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  gap: 48px;
+  gap: 60px;
   font-size: 18px;
   color: #928f94;
 }
@@ -12,57 +12,84 @@
 }
 
 .found-trains__title {
-  padding-right: 6px;
-
+  padding-right: 10px;
 }
 
-/* .found-trains__count {} */
-
-/* .sorting-by {} */
+.sorting-by {
+  display: flex;
+  margin-right: 80px;
+  line-height: 0;
+}
 
 .sorting-by__title {
-  padding-right: 6px;
+  padding-right: 12px;
+}
+
+.sorting-by__action {
+  position: relative;
+}
+
+.sorting-by__select-value {
+  position: absolute;
+  color: #3e3c41;
+  cursor: pointer;
 }
 
 .sorting-by__select-menu {
-  /* border: none; */
-  /* outline: none; */
-  /* appearance: none; */
-  /* -webkit-appearance: none; */
-  /* -moz-appearance: none; */
-  cursor: pointer;
-
-  border-radius: 0;
-  /* background-color: #928f94; */
-
-  &::picker(select) {
-    appearance: base-select;
-    border-radius: none;
-  }
-  & option {
-    padding: 30px 40px;
-    /* background-color: red; */
-    border-radius: none;
-  }
+  position: absolute;
+  z-index: 1;
+  top: -17px;
+  left: -7px;
+  width: 140px;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #f7f5f9;
+  list-style: none;
 }
 
 .sorting-by__select-menu-item {
-  position: absolute;
-  /* font-size: 30px; */
-   width: 139px;
-   border-bottom: 1px solid #000000;
-   border-radius: none;
-   padding: 20px;
-   /* text-align: center; */
-}
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-left: 7px;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 1;
+  color: #3e3c41;
+  cursor: pointer;
 
-/* .show-by {} */
+  &:first-child {
+    height: 35px;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: #ffca62;
+  }
+}
 
 .show-by__title {
   padding-right: 6px;
 }
 
-.show-by__count {
-  padding-right: 8px;
+.show-by__limit {
+  display: inline-flex;
+  justify-content: center;
+  width: 25px;
+  border: none;
+  color: #928f94;
+  background: none;
   cursor: pointer;
+
+  &--active {
+    color: #000000;
+  }
+}
+
+.show-by__limit--active {
+  font-size: 19px;
+  color: #000000;
 }

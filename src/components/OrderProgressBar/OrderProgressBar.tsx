@@ -9,7 +9,7 @@ const OrderProgressBar = ({ stepNumber }: { stepNumber: number }) => {
   return (
     <section className="order-progress-bar">
       {orderSteps.map((step, index) =>
-        <div id={String(index + 1)} className={stepNumber >= index + 1 ? stepStyleActive : stepStyle}>
+        <div key={step} id={String(index + 1)} className={stepNumber >= index + 1 ? stepStyleActive : stepStyle}>
           <div className="order-progress-bar__step-number">{index + 1}</div>
           <div className="order-progress-bar__step-name">{step}</div>
           <div className="arrow-right"></div>

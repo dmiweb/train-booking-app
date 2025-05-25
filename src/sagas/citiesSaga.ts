@@ -19,6 +19,7 @@ function* handleGetCitiesSaga(action: PayloadAction<string>): Generator {
   let attempt = 0;
 
   while (true) {
+    if(attempt === 2) break;
     try {
       attempt++;
 

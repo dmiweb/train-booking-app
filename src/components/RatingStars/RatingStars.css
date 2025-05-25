@@ -1,0 +1,12 @@
+.rating-stars {
+  position: relative;
+}
+
+.rating-stars__star{
+  cursor: pointer;
+}
+
+.rating-stars__text {
+  position: absolute;
+  bottom: -25px;
+}

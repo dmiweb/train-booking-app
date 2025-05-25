@@ -1,6 +1,6 @@
-import { TCatalogItem, TCompletedOrder, CustomError } from "../models";
+import { TTrain, TLastTicket, TOrderCompleted, CustomError } from "../models";
 
-export const fetchData = async (url: string, signal: AbortSignal): Promise<TCatalogItem[]> => {
+export const fetchData = async (url: string, signal: AbortSignal): Promise<TTrain[] | TLastTicket[]> => {
   const response = await fetch(url, { signal });
 
   if (!response.ok) {
@@ -13,7 +13,7 @@ export const fetchData = async (url: string, signal: AbortSignal): Promise<TCata
   return await response.json();
 };
 
-export const fetchStatusOrder = async (url: string, order: TCompletedOrder): Promise<boolean> => {
+export const fetchStatusOrder = async (url: string, order: TOrderCompleted): Promise<boolean> => {
   const response = await fetch(url, {
     method: 'POST',
     headers: {

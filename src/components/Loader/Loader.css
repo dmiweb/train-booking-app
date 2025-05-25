@@ -1,0 +1,15 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 774px;
+  background: #3e3c41 url(./img/loader.gif) no-repeat center;
+}
+.loader__text {
+  position: relative;
+  bottom: 125px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #928f94;
+}

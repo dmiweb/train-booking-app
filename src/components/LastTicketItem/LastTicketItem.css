@@ -1,0 +1,90 @@
+.last-tickets__item {
+  margin-bottom: 17px;
+  cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.last-ticket {
+  padding: 18px 18px 16px 18px;
+  border: 1px solid #c4c4c4;
+  box-shadow: 0 2px 1px rgba(62, 60, 65, 0.25);
+  background-color: #ffffff;
+
+  &:hover {
+    &:hover {
+      border: 1px solid #ffa800;
+    }
+  }
+}
+
+.last-ticket__location {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+}
+
+.last-ticket__location-departure,
+.last-ticket__location-arrival {
+  font-size: 20px;
+  color: #292929;
+  text-shadow: 0 0 1px #292929;
+  text-transform: capitalize;
+}
+
+.last-ticket__station {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+}
+
+.last-ticket__station-departure {
+  font-size: 16px;
+  color: #928f94;
+}
+
+.last-ticket__station-arrival {
+  font-size: 16px;
+  color: #928f94;
+}
+
+.last-ticket__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 24px;
+}
+
+.last-ticket__info-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 92px;
+  height: 20px;
+}
+
+.last-ticket__info-min-price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.last-ticket__info-min-price-prefix {
+  padding-right: 5px;
+  font-size: 16px;
+  color: #928F94;
+}
+
+.last-ticket__info-min-price-amount {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffa800;
+  line-height: 0.9;
+}
+
+.last-ticket__info-min-price-currency {
+  position: relative;
+  right: -6px;
+}

@@ -13,38 +13,36 @@
   text-transform: uppercase;
 }
 
-
 /* Информация о поездке */
 .details-trip-panel__trip {
   border-top: 1px solid #e5e5e5;
 }
 
 .details-trip-panel__trip-wrap {
-  padding: 0 28px 54px;
+  padding: 0 27px 54px;
 }
 
 .details-trip-panel__trip-direction {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   position: relative;
   margin-bottom: 5px;
   padding-top: 16px;
-  /* position: relative; */
-  /* height: 35px; */
 }
 
 .details-trip-panel__trip-direction-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* position: relative; */
-  /* top: -1px; */
   width: 32px;
   height: 26px;
   margin-right: 12px;
   border-radius: 5px;
   background-color: #ffa800;
+}
+
+.details-trip-panel__trip-direction-icon-passenger {
+  margin-right: 17px;
 }
 
 .details-trip-panel__trip-direction-title {
@@ -61,13 +59,12 @@
 .details-trip-panel__trip-date {
   position: relative;
   top: 3px;
-  margin-right: auto;
   font-size: 18px;
   color: #ffffff;
 }
 
 .details-trip-panel__header-label {
-  /* position: absolute; */
+  margin-left: auto;
   right: 0;
   bottom: 0;
 }
@@ -99,6 +96,10 @@
   margin-bottom: 5px;
 }
 
+.details-trip-panel__trip-train-name {
+  text-transform: capitalize;
+}
+
 /* Информация о времени */
 .details-trip-panel__trip-time-info {
   display: flex;
@@ -113,9 +114,9 @@
   text-align: center;
 }
 
+/* Unicode для стрелки вправо */
 .details-trip-panel__trip-time-separator::before {
   content: '\2192';
-  /* Unicode для стрелки вправо */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -140,8 +141,6 @@
   font-size: 18px;
   font-weight: bold;
 }
-
-
 
 .details-trip-panel__trip-train-info {
   display: flex;
@@ -184,6 +183,10 @@
 .details-trip-panel__trip-time-wrap {
   display: flex;
   flex-direction: column;
+
+  & svg {
+    margin: 0 auto;
+  }
 }
 
 .details-trip-panel__trip-departure-time {
@@ -234,42 +237,45 @@
 
 .details-trip-panel__trip-departure-city {
   font-size: 18px;
+  text-transform: capitalize;
   color: #ffffff;
 }
 
 .details-trip-panel__trip-departure-station {
-  /* display: flex; */
-  /* justify-content: flex-start; */
-  /* flex-wrap: wrap; */
-  width: 30%;
-  /* margin-right: auto; */
+  display: flex;
+  flex-direction: column;
   font-size: 16px;
   color: #928f94;
 }
 
+.details-trip-panel__trip-departure-station-name {
+  text-transform: capitalize;
+}
+
 .details-trip-panel__trip-arrival-city {
   font-size: 18px;
+  text-align: end;
+  text-transform: capitalize;
   color: #ffffff;
 }
 
 .details-trip-panel__trip-arrival-station {
   display: flex;
-  justify-content: flex-end;
-  width: 30%;
-  text-align: end;
-  margin-left: auto;
+  flex-direction: column;
   font-size: 16px;
   color: #928f94;
   text-align: end;
 }
 
-
+.details-trip-panel__trip-arrival-station-name {
+  text-transform: capitalize;
+}
 
 .details-trip-panel__passengers-summary {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 33px 28px 46px;
+  padding-top: 33px;
 }
 
 .details-trip-panel__passengers-summary-adults,
@@ -290,9 +296,6 @@
   font-weight: 700;
   color: #ffffff;
 }
-
-
-
 
 .details-trip-panel__total {
   display: flex;

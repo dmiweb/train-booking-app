@@ -1,0 +1,167 @@
+.searh-tickets-btn {
+  width: 323px;
+  height: 60px;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #292929;
+  background-color: #ffa800;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    filter: brightness(95%);
+  }
+
+  &:active {
+    border: 1px solid #ffa800;
+    color: #ffa800;
+    background-color: transparent;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.next-btn {
+  position: relative;
+  left: 100%;
+  width: 222px;
+  height: 60px;
+  margin-top: 102px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #ffa800;
+  transform: translateX(-100%);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    filter: brightness(98%);
+  }
+
+  &:active {
+    border: 1px solid #ffa800;
+    color: #ffa800;
+    background-color: transparent;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &.next-btn--disable {
+    background-color: #928f94;
+    cursor: default;
+
+    &:hover {
+      box-shadow: none;
+      filter: none;
+    }
+
+    &:active {
+      border: 1px solid #928f94;
+      color: #ffffff;
+      background-color: 928f94;
+      box-shadow: none;
+    }
+  }
+}
+
+/* .save-btn {} */
+
+.massage-btn {
+  padding: 11px 67px;
+  border: 1px solid #292929;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #292929;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: #ffa800;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    border-color: #ffa800;
+    color: #292929;
+    background-color: #ffa800;
+  }
+}
+
+.select-train-btn {
+  width: 100%;
+  max-width: 228px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #ffa800;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    filter: brightness(98%);
+  }
+
+  &:active {
+    border: 1px solid #ffa800;
+    box-shadow: none;
+    color: #ffa800;
+    background-color: transparent;
+  }
+}
+
+.change-btn {
+  width: 233px;
+  height: 40px;
+  padding: 0 60px;
+  border: 1px solid #292929;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #292929;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: #ffa800;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    border-color: #ffa800;
+    color: #292929;
+    background-color: #ffa800;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.confirm-btn {
+  padding: 16px 58px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  background-color: #ffa800;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    filter: brightness(98%);
+  }
+
+  &:active {
+    border: 1px solid #ffa800;
+    color: #ffa800;
+    background-color: transparent;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}

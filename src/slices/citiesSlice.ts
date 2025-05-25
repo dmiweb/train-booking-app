@@ -3,8 +3,8 @@ import { TСitiesState, TCities } from "../models";
 
 const initialState: TСitiesState = {
   cities: [],
-  cityTo: "",
-  cityFrom: "",
+  cityDeparture: "",
+  cityArrival: "",
   citiesLoading: false,
   citiesError: null,
 };
@@ -12,35 +12,50 @@ const initialState: TСitiesState = {
 export const citiesSlice = createSlice({
   name: "cities",
   initialState,
-  reducers: (create) => ({
+  reducers: {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    requestCities: create.reducer((state, _: PayloadAction<string | "">) => {
+    requestCities: ((state, _: PayloadAction<string>) => {
       state.cities = [];
       state.citiesLoading = true;
       state.citiesError = null;
     }),
 
-    getCitiesSuccess: create.reducer((state, action: PayloadAction<TCities[]>) => {
+    setCityDeparture: (state, action: PayloadAction<string>) => {
+      state.cityDeparture = action.payload
+    },
+
+    setCityArrival: (state, action: PayloadAction<string>) => {
+      state.cityArrival = action.payload
+    },
+
+    getCitiesSuccess: ((state, action: PayloadAction<TCities[]>) => {
       state.cities = action.payload;
       state.citiesLoading = false;
       state.citiesError = null;
     }),
 
-    getCitiesFailure: create.reducer((state, action: PayloadAction<string>) => {
+    getCitiesFailure: ((state, action: PayloadAction<string>) => {
       state.citiesError = action.payload;
       state.citiesLoading = true;
     }),
-    cancelRequestCities: create.reducer((state) => {
+
+    cancelRequestCities: ((state) => {
       state.citiesError = null;
       state.citiesLoading = false;
     }),
-  })
+    resetCitiesState: () => {
+      return initialState;
+    },
+  }
 });
 
 export const {
   requestCities,
+  setCityDeparture,
+  setCityArrival,
   getCitiesSuccess,
   getCitiesFailure,
-  cancelRequestCities
+  cancelRequestCities,
+  resetCitiesState
 } = citiesSlice.actions;
 export default citiesSlice.reducer;

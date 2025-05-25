@@ -1,0 +1,87 @@
+.wagon-scheme__container {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.wagon-scheme__wagon-image {
+  display: block;
+  width: 100%;
+  max-width: 921px;
+  margin: 0 auto;
+}
+
+.wagon-scheme__svg-layer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 921px;
+}
+
+.wagon-scheme__wagon-rect {
+  fill: #3E3C41;
+}
+
+.wagon-scheme__wagon-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: default;
+}
+
+.wagon-scheme__seat-rect {
+  fill: #cccccc;
+}
+
+.wagon-scheme__seat-rect--available {
+  fill: #f2f2f2;
+}
+
+.wagon-scheme__seat-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+.wagon-scheme__seat-first-class-number {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  box-sizing: border-box;
+  height: 100%;
+  padding-bottom: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+.wagon-scheme__seat-number--available {
+  font-weight: 700;
+  color: #000000;
+  cursor: pointer;
+}
+
+.wagon-scheme__seat-number--active {
+  border: 3px solid #ffa800;
+}
+
+.wagon-scheme__seat-number--first-class-active {
+  padding-bottom: 4px;
+  border: 3px solid #ffa800;
+}
+
+.wagon-scheme__seat-number-num {
+  margin-top: 100px;
+}

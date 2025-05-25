@@ -1,0 +1,68 @@
+.message {
+  box-sizing: border-box;
+  width: 666px;
+  border: 1px solid #c4c4c4;
+  background-color: #ffffff;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.message__header {
+  box-sizing: border-box;
+  height: 107px;
+  padding: 41px 0 34px 38px;
+  border-bottom: 1px dotted #928f94;
+
+  &.message__header--info {
+    background-color: rgba(255, 245, 0, 0.36);
+  }
+
+  &.message__header--error {
+    background-color: rgba(255, 61, 0, 0.38);
+  }
+}
+
+.message__header-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  &.message__header-icon--info {
+    background-image: url("./img/info-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &.message__header-icon--error {
+    background-image: url("./img/exclamation-mark-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.message__body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 46px;
+}
+
+.message__body-header-text {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.message__body-text {
+  margin: 0;
+  font-size: 18px;
+}
+
+.massage__action {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px;
+  height: 106px;
+  border-top: 1px dotted #928f94;
+}

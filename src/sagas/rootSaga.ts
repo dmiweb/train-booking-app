@@ -1,16 +1,16 @@
 import { all, spawn } from 'redux-saga/effects';
-import catalogSaga from './catalogSaga';
+import trainSaga from './trainSaga';
 import citiesSaga from './citiesSaga';
-import categoriesSaga from './categoriesSaga';
-import productSaga from './productSaga';
-import cartSaga from './cartSaga';
+import lastTicketsSaga from './lastTicketsSaga';
+import seatsSaga from './seatsSaga';
+import orderSaga from './orderSaga';
 
 export default function* rootSaga() {
   yield all([
-    spawn(catalogSaga),
+    spawn(trainSaga),
     spawn(citiesSaga),
-    spawn(categoriesSaga),
-    spawn(productSaga),
-    spawn(cartSaga)
+    spawn(lastTicketsSaga),
+    spawn(seatsSaga),
+    spawn(orderSaga)
   ]);
 }

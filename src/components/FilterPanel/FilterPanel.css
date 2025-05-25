@@ -3,8 +3,6 @@
   background-color: #3e3c41;
 }
 
-/* .filter-panel__form {} */
-
 .filter-panel__container {
   border-bottom: 1px solid #e5e5e5;
 }
@@ -15,6 +13,11 @@
 
 .filter-dates {
   padding: 43px 36px 7px 29px;
+}
+
+.filter-dates__container {
+  position: relative;
+
 }
 
 .filter-dates__label {
@@ -37,9 +40,17 @@
   padding-left: 8px;
   border-radius: 3px;
   font-size: 18px;
+  text-transform: uppercase;
   color: #292929;
 }
 
+.filter-dates__input--mask {
+  color: #e5e5e5;
+}
+
+.filter-dates__calendar {
+  margin: 0 0 0 3.5px;
+}
 
 .filter-options {
   display: flex;
@@ -58,46 +69,44 @@
   justify-content: space-between;
   align-items: center;
   height: 28px;
-
 }
 
-.filter-options__coupe-title {
+.filter-options__second-class {
   padding-left: 51px;
   background: url(./img/options/coupe.svg) no-repeat;
   background-position: left center;
 }
 
-.filter-options__reserved-seat-title {
+.filter-options__third-class {
   padding-left: 51px;
   background: url(./img/options/reserved-seat.svg) no-repeat;
   background-position: left center;
 }
 
-.filter-options__seating-places-title {
+.filter-options__fourth-class {
   padding-left: 51px;
   background: url(./img/options/seating-places.svg) no-repeat;
   background-position: left center;
 }
 
-.filter-options__lux-title {
+.filter-options__first-class {
   padding-left: 51px;
   background: url(./img/options/lux.svg) no-repeat;
   background-position: left center;
 }
 
-.filter-options__wi-fi-title {
+.filter-options__wi-fi {
   padding-left: 51px;
   background: url(./img/options/wi-fi.svg) no-repeat;
   background-position: left center;
 }
 
-.filter-options__express-title {
+.filter-options__express {
   padding-left: 51px;
   line-height: 1.5;
   background: url(./img/options/express.svg) no-repeat;
   background-position: left center;
 }
-
 
 /* FilterOptions */
 .toggle-switch {

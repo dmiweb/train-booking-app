@@ -2,6 +2,7 @@
   border: 1px solid #c4c4c4;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
   background-color: #ffffff;
+  margin-bottom: 77px;
 }
 
 .payment__header {
@@ -20,6 +21,7 @@
 }
 
 .payment__form {
+  position: relative;
   padding: 30px 36px 32px;
   border-top: 1px dotted #928f94;
 }
@@ -29,6 +31,7 @@
 }
 
 .payment__field {
+  position: relative;
   padding: 0;
 }
 
@@ -48,6 +51,17 @@
   font-size: 24px;
   color: #292929;
   outline: none;
+}
+
+.payment__input-error {
+  border-color: rgba(255, 61, 0, 0.76);
+}
+
+.payment__field-error-message {
+  position: absolute;
+  left: 3px;
+  bottom: -23px;
+  color: rgba(255, 61, 0, 0.8);
 }
 
 .payment__full-name {
@@ -105,6 +119,7 @@
 }
 
 .payment__checkbox-label {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -120,6 +135,10 @@
     border-color: #ffa800;
     background: url(./img/mark.svg) no-repeat center;
   }
+
+  &:checked~.payment__checkbox-title {
+    color: #ffa800;
+  }
 }
 
 .payment__checkbox-overlay {
@@ -131,31 +150,24 @@
   cursor: pointer;
 }
 
+.payment__checkbox-overlay-error {
+  border-color: rgba(255, 61, 0, 0.76);
+}
+
 .payment__checkbox-title {
   font-size: 24px;
   color: #928f94;
+  cursor: pointer;
 }
 
+.payment__checkbox-title--error {
+  color: rgba(255, 61, 0, 0.8);
+}
 
-.payment__next-button {
-  box-sizing: border-box;
+.payment__btn-container {
   position: absolute;
   right: 0;
-  transform: translateX(-100%);
-  margin-top: 153px;
-  padding: 12px 34px;
-  border: none;
-  border-radius: 5px;
-  font-size: 24px;
-  font-weight: 700;
-  color: #ffffff;
-  background-color: #ffa800;
-  cursor: pointer;
-
-  &:hover {
-    border-color: transparent;
-    color: #ffffff;
-    background-color: #ffa800;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  }
+  top: 100%;
+  margin-top: 116px;
+  margin-bottom: 77px;
 }

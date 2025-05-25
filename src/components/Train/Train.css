@@ -1,37 +1,43 @@
+.train__list-item {
+  margin-top: 47px;
+}
+
 .train {
   display: flex;
+  justify-content: space-between;
   position: relative;
-  /* Временный отступ сверху, потом перенести на список поездов */
-  margin-top: 0px;
   border: 1px solid #c4c4c4;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
 }
 
 .train-info {
   width: 100%;
   max-width: 197px;
-  /* height: 353px; */
   box-sizing: border-box;
   padding-top: 58px;
+  padding-bottom: 32px;
   background-color: #e4e0e9;
 }
 
 .train-info__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 86px;
   height: 86px;
   margin-left: 43px;
   border: 2px solid #ffffff;
   border-radius: 50%;
-  background: url(./img/train.svg) no-repeat center;
 }
 
 .train-info__number {
-  width: 93px;
   margin-top: 17px;
-  margin-left: 39px;
+  margin-left: 26px;
   font-size: 24px;
   font-weight: 700;
-  text-align: center;
+  text-transform: uppercase;
+  color: #3e3c41;
 }
 
 .train-info__direction {
@@ -43,31 +49,32 @@
   position: relative;
   font-size: 16px;
   color: #928f94;
-}
 
-.train-info__direction-start::after {
-  content: "\00A0 \2192";
-  position: absolute;
-  /* height: 50px; */
-  top: -8px;
-  font-size: 26px;
+  &::after {
+    content: "\00A0 \2192";
+    position: absolute;
+    top: -8px;
+    font-size: 26px;
+  }
 }
 
 .train-info__direction-departure {
   position: relative;
   font-size: 16px;
+  text-transform: capitalize;
   color: #292929;
-}
 
-.train-info__direction-departure::after {
-  content: "\00A0 \2192";
-  position: absolute;
-  top: -8px;
-  font-size: 26px;
+  &::after {
+    content: "\00A0 \2192";
+    position: absolute;
+    top: -6px;
+    font-size: 26px;
+  }
 }
 
 .train-info__direction-arrival {
   font-size: 16px;
+  text-transform: capitalize;
   color: #292929;
 }
 
@@ -75,18 +82,22 @@
   display: flex;
   flex-direction: column;
   gap: 63px;
-  /* width: 486px; */
-  padding: 54px 40px 0 40px;
+  box-sizing: border-box;
+  width: 479px;
+  padding: 50px 36px 50px 36px;
 }
 
 .train-trip__container {
   display: flex;
-  gap: 40px;
+  justify-content: space-between;
+  gap: 38px;
 }
 
 .train-trip-info {
+
   display: flex;
   flex-direction: column;
+  width: 155px;
 }
 
 .train-trip-info__time {
@@ -99,12 +110,20 @@
   font-size: 18px;
   white-space: nowrap;
   color: #000000;
+  text-transform: capitalize;
+}
+
+.train-trip-info__station-wrapper {
+  position: relative;
+  overflow: visible;
 }
 
 .train-trip-info__station {
-  font-size: 18px;
+  position: absolute;
+  font-size: 16px;
   white-space: nowrap;
   color: #928f94;
+  width: max-content;
 }
 
 .train-trip__duration {
@@ -112,48 +131,42 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
   width: 47px;
   height: 47px;
 }
 
 .train-trip__duration-time {
+  position: relative;
+  top: -4px;
+  padding-bottom: 5px;
   font-size: 18px;
   color: #c4c4c4;
 }
 
-.train-trip__direction-icon-from {
-  /* position: absolute; */
-  /* left: 0; */
-  width: 30px;
-  height: 20px;
-  background: url(./img/right-arrow.svg) no-repeat center;
-  background-size: 25px;
-}
-
-.train-trip__direction-icon-back {
-  width: 30px;
-  height: 20px;
-  background: url(./img/left-arrow.svg) no-repeat center;
-  background-size: 25px;
-}
-
 .train-seats {
-  justify-self: center;
-  width: 100%;
-  /* width: 100%; */
-  /* max-width: 276px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  width: 283px;
   padding: 37px 22px 23px 27px;
   border-left: 1px dashed #e5e5e5;
 }
 
-.train-seats__seating,
-.train-seats__reserved,
-.train-seats__coupe,
-.train-seats__lux {
+.train-seats__fourth-class,
+.train-seats__third-class,
+.train-seats__second-class,
+.train-seats__first-class {
   display: flex;
   align-items: center;
   margin-bottom: 24px;
+
+  & svg {
+    position: relative;
+    top: 1px;
+    padding-left: 4px;
+  }
 }
 
 .train-seats__seating-type {
@@ -164,7 +177,7 @@
 }
 
 .train-seats__seating-count {
-  padding-right: 15px;
+  margin-right: auto;
   font-size: 16px;
   font-weight: 500;
   color: #ffa800;
@@ -175,7 +188,6 @@
   font-size: 24px;
   font-weight: 700;
   color: #2d2b2f;
-  /* line-height: 0.6; */
 }
 
 .train-seats__seating-min-price::before {
@@ -185,50 +197,11 @@
   color: #928f94;
 }
 
-.train-seats__seating-min-price::after {
-  content: "";
-  position: absolute;
-  right: -20px;
-  bottom: 4px;
-  width: 16px;
-  height: 19px;
-  background: url(./img/amount.svg) no-repeat center;
-  background-size: contain;
-
-}
-
 .train-seats__services {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 92px;
   height: 20px;
   margin: 27px 6px 33px auto;
-  background: url(./img/services.svg) no-repeat center;
-  background-size: contain;
-}
-
-.train-seats__select-btn {
-  /* position: absolute; */
-  right: 21px;
-  bottom: 0;
-  width: 100%;
-  max-width: 228px;
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #ffffff;
-  background-color: #ffa800;
-  cursor: pointer;
-}
-
-.train-seats__select-btn:hover {
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  filter: brightness(98%);
-}
-
-.train-seats__select-btn:active {
-  border: 1px solid #ffa800;
-  box-shadow: none;
-  color: #ffa800;
-  background-color: transparent;
 }

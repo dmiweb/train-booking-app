@@ -29,7 +29,6 @@
   border-bottom: 50px solid transparent;
   z-index: 1;
   filter: drop-shadow(2px 0 0 white);
-
 }
 
 .order-progress-bar__step:last-child::after {
