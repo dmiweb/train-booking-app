@@ -1,4 +1,4 @@
-import { TTrain, TLastTicket, TOrderCompleted, CustomError } from "../models";
+import { TTrain, TLastTicket, CustomError } from "../models";
 
 export const fetchData = async (url: string, signal: AbortSignal): Promise<TTrain[] | TLastTicket[]> => {
   const response = await fetch(url, { signal });
@@ -13,13 +13,13 @@ export const fetchData = async (url: string, signal: AbortSignal): Promise<TTrai
   return await response.json();
 };
 
-export const fetchStatusOrder = async (url: string, order: TOrderCompleted): Promise<boolean> => {
+export const fetchStatus= async (url: string, body = {}): Promise<boolean> => {
   const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(order)
+    body: JSON.stringify(body)
   });
 
   if (!response.ok) {

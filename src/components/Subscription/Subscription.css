@@ -14,6 +14,10 @@
   color: #e5e5e5;
 }
 
+.subscription__form-label {
+  position: relative;
+}
+
 .subscription__form-input {
   box-sizing: border-box;
   width: 447px;
@@ -50,6 +54,18 @@
 
 .subscription__form-submit-btn:active {
   background-color: #ffffff;
+}
+
+.subscription__field-message {
+  position: absolute;
+  left: 3px;
+  bottom: -38px;
+  font-size: 18px;
+  color: rgba(255, 61, 0, 0.8);
+}
+
+.subscription__success-message {
+color: rgb(0, 255, 0);
 }
 
 .subscription__social {

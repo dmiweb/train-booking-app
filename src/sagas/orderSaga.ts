@@ -2,7 +2,7 @@ import { takeLatest, put, call, spawn, delay, select } from 'redux-saga/effects'
 // import { PayloadAction } from '@reduxjs/toolkit';
 import { submitOrder, getOrderStatus} from '../slices/orderSlice';
 import { TOrderCompleted } from '../models';
-import { fetchStatusOrder } from "../api";
+import { fetchStatus } from "../api";
 
 
 
@@ -12,7 +12,7 @@ function* handleSubmitOrderSaga() {
 
   while (true) {
     try {
-      const status: boolean = yield call(fetchStatusOrder, url, order);
+      const status: boolean = yield call(fetchStatus, url, order);
 
       yield put(getOrderStatus(status));
       break;

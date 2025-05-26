@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import modalReducer from '../slices/modalSlice';
+import subscribeReducer from '../slices/subscribeSlice';
 import trainReducer from '../slices/trainSlice';
 import queryParamsReducer from '../slices/queryParamsSlice';
 import lastTicketsReducer from '../slices/lastTicketsSlice';
@@ -15,6 +16,7 @@ const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
   reducer: {
     modal: modalReducer,
+    subscribe: subscribeReducer,
     cities: citiesReducer,
     trains: trainReducer,
     queryParams: queryParamsReducer,

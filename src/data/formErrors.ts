@@ -53,3 +53,10 @@ export const ownerFormErrors: Record<string, ErrorMessagesValidateForms> = {
     radioChecked: 'Выберите способ оплаты!',
   }
 }
+
+export const subscribeFormErrors: Record<string, ErrorMessagesValidateForms> = {
+    email: {
+    valueMissing: 'Введите email адрес!',
+    patternMismatch: 'Некорректно введен email адрес!',
+  }
+}

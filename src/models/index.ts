@@ -453,6 +453,12 @@ export type TPassengersState = {
   arrival: TPassengers;
 }
 
+export type subscribeState = {
+  subscribeStatus: boolean,
+  loading: boolean,
+  error: string | null,
+}
+
 export type TOrderState = {
   owner: TOrderOwner
   order: TOrderCompleted | null;
@@ -465,5 +471,6 @@ export type TRootState = {
   trains: TTrainState;
   cities: TСitiesState;
   lastTickets: TLastTicketsState;
+  subscribe: subscribeState;
   order: TOrderState;
 };
