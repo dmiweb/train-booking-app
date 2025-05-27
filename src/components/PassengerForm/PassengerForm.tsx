@@ -67,7 +67,19 @@ const PassengerForm = ({
       nextBtnRef.current?.click();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wasValidateForm])
+  }, [wasValidateForm]);
+
+  // разделение и запись данных паспорта в useState при монтировании
+  useEffect(() => {
+    const passport = getFieldValue("document_data");
+
+    if (passport) {
+      const passportData = passport.split(" ");
+
+      setPassportSeries(passportData[0])
+      setPassportNumber(passportData[1])
+    }
+  }, []);
 
   // Соединение серии и номера паспорта в одну строку
   useEffect(() => {
@@ -187,6 +199,7 @@ const PassengerForm = ({
                       name="gender"
                       value="male"
                       className="passenger__gender-input"
+                      checked={getFieldValue("gender") === "male"}
                       onChange={(e) => handleFieldChange("gender", e.target.value)}
                     />
                     <div className="passenger__gender-male-button" data-gender="male">М</div>
@@ -197,6 +210,7 @@ const PassengerForm = ({
                       name="gender"
                       value="female"
                       className="passenger__gender-input"
+                      checked={getFieldValue("gender") === "female"}
                       onChange={(e) => handleFieldChange("gender", e.target.value)}
                       required
                     />
@@ -216,7 +230,7 @@ const PassengerForm = ({
                   name="birthday"
                   min="1900-01-01"
                   max="9999-01-01"
-                  value={getFieldValue("birthday")  || ""}
+                  value={getFieldValue("birthday") || ""}
                   onChange={(e) => handleFieldChange("birthday", e.target.value)}
                   required
                 />
