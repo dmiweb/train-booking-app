@@ -1,18 +1,31 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks";
 import { setSelectedTrain } from "../../slices/trainSlice";
 import { TTrain } from "../../models";
-import { Button } from "../../components";
+import { Button, TooltipInfoSeats } from "../../components";
 import { TrainIconSvg, ArrowIconSvg, WifiIconSvg, ExpressTrainIconSvg, FoodIconSvg, CurrencyIconSvg } from "../icons";
 import { getStationPrefix } from "../../utils/getStationPrefix";
 import { timestampToTime } from "../../utils/timestampToTime";
 import { secondsToTime } from "../../utils/secondsToTime";
+import { calcSeatsCount } from "../../utils/calcSeatsCount";
 import "./Train.css";
 
 const Train = ({ item, reselect }: { item: TTrain, reselect?: boolean }) => {
+  const [isVisibleTooltip, setIsVisibleTooltip] =
+    useState<{ isVisible: boolean, class: string | null }>({ isVisible: false, class: null });
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { departure, arrival } = item;
+
+  const showTooltip = (classCoach: string) => {
+    setIsVisibleTooltip({ isVisible: true, class: classCoach });
+  };
+
+  const hideTooltip = () => {
+    setIsVisibleTooltip({ isVisible: false, class: null });
+  };
 
   const onSelectTrain = () => {
     if (item) {
@@ -127,7 +140,11 @@ const Train = ({ item, reselect }: { item: TTrain, reselect?: boolean }) => {
             </div>}
 
           {departure.have_third_class &&
-            <div className="train-seats__third-class">
+            <div
+              className="train-seats__third-class"
+              onMouseEnter={() => showTooltip("third")}
+              onMouseLeave={hideTooltip}
+            >
               <div className="train-seats__seating-type">Плацкарт</div>
               <div className="train-seats__seating-count">
                 {item.available_seats_info.third}
@@ -136,10 +153,22 @@ const Train = ({ item, reselect }: { item: TTrain, reselect?: boolean }) => {
                 {departure.price_info.third.bottom_price}
               </div>
               <CurrencyIconSvg code="rub" width={16} fill="#928f94" />
+
+              {isVisibleTooltip.isVisible && isVisibleTooltip.class === "third" &&
+                <TooltipInfoSeats
+                  topPrice={item.departure.price_info.third.top_price}
+                  bottomPrice={item.departure.price_info.third.bottom_price}
+                  topSeatsCount={calcSeatsCount(item.available_seats_info.third, "top")}
+                  bottomSeatsCount={calcSeatsCount(item.available_seats_info.third, "bottom")}
+                />}
             </div>}
 
           {departure.have_second_class &&
-            <div className="train-seats__second-class">
+            <div
+              className="train-seats__second-class"
+              onMouseEnter={() => showTooltip("second")}
+              onMouseLeave={hideTooltip}
+            >
               <div className="train-seats__seating-type">Купе</div>
               <div className="train-seats__seating-count">
                 {item.available_seats_info.second}
@@ -148,6 +177,14 @@ const Train = ({ item, reselect }: { item: TTrain, reselect?: boolean }) => {
                 {departure.price_info.second.bottom_price}
               </div>
               <CurrencyIconSvg code="rub" width={16} fill="#928f94" />
+
+              {isVisibleTooltip.isVisible && isVisibleTooltip.class === "second" &&
+                <TooltipInfoSeats
+                  topPrice={item.departure.price_info.second.top_price}
+                  bottomPrice={item.departure.price_info.second.bottom_price}
+                  topSeatsCount={calcSeatsCount(item.available_seats_info.second, "top")}
+                  bottomSeatsCount={calcSeatsCount(item.available_seats_info.second, "bottom")}
+                />}
             </div>}
 
           {departure.have_first_class &&

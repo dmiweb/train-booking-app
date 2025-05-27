@@ -35,6 +35,7 @@ export { default as DetailsTripInfo } from './DetailsTripPanel/DetailsTripInfo';
 
 export { default as TrainListToolbar } from './TrainListToolbar/TrainListToolbar';
 export { default as Train } from './Train/Train';
+export { default as TooltipInfoSeats } from './Train/TooltipInfoSeats';
 
 export { default as SelectSeats } from './SelectSeats/SelectSeats';
 export { default as TripInfo } from './SelectSeats/TripInfo';
