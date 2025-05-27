@@ -11,6 +11,14 @@
   background-position: right;
 }
 
+@media (max-width: 1919px) {
+  .order-tickets-section-homepage {
+    justify-content: center;
+    gap: 60px; /* Уменьшаем gap */
+    padding-right: 0; /* Уменьшаем padding-right */
+  }
+}
+
 .order-tickets-section-homepage__container {
   display: flex;
   align-items: flex-start;
@@ -72,8 +80,9 @@
   height: 575px;
   background-image: url(../../assets/img/advantages-section-background.jpg);
   background-repeat: no-repeat;
-  background-size: contain;
-
+  background-position:  center;
+  /* background-size: contain; */
+  background-size: cover;
 }
 
 .how-it-works-section__header {
