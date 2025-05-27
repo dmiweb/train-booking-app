@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { setOpenedCoaches } from "../../slices/seatsSlice";
 import { TripInfo, SelectCountSeats, SelectTypeCoach, NumberCoachMenu, CoachInfo } from "../../components";
 import { ArrowIconSvg, CurrencyIconSvg } from "../../components/icons";
 import { TTrain, TSeat } from "../../models";
@@ -13,16 +14,12 @@ type SelectSeatsProps = {
 }
 
 const SelectSeats = ({ direction, train, seats }: SelectSeatsProps) => {
-  const [openedCoaches, setOpenedCoaches] = useState<{ from: string[], to: string[] }>({
-    from: [],
-    to: []
-  });
-
   const [firstCoachSent, setFirstCoachSent] = useState<{
     [direction: string]: { [coachType: string]: boolean }
   }>({});
 
-  const { activeTypeCoach, selectedSeats } = useAppSelector(state => state.seats)
+  const { activeTypeCoach, openedCoaches, selectedSeats } = useAppSelector(state => state.seats);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const coaches = seats
@@ -32,6 +29,7 @@ const SelectSeats = ({ direction, train, seats }: SelectSeatsProps) => {
   useEffect(() => {
     if (coaches.length && !(firstCoachSent[direction]?.[activeTypeCoach[direction]])) {
       const firstCoachNumber = coaches[coaches.length - 1].coachNumber;
+
       if (firstCoachNumber && !openedCoaches[direction].includes(firstCoachNumber)) {
         handleCoachToggle(firstCoachNumber);
         setFirstCoachSent(prev => ({
@@ -46,14 +44,13 @@ const SelectSeats = ({ direction, train, seats }: SelectSeatsProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coaches, openedCoaches, direction, firstCoachSent, activeTypeCoach]);
 
-  const handleCoachToggle = (coachNumber: string) => {
-    setOpenedCoaches(prev => ({
-      ...prev,
-      [direction]: prev[direction].includes(coachNumber)
-        ? prev[direction].filter(num => num !== coachNumber)
-        : [...prev[direction], coachNumber]
-    }));
-  };
+    const handleCoachToggle = (coachNumber: string) => {
+      const updatedCoaches = openedCoaches[direction].includes(coachNumber)
+        ? openedCoaches[direction].filter(num => num !== coachNumber)
+        : [...openedCoaches[direction], coachNumber];
+
+        dispatch(setOpenedCoaches({ direction: direction, coaches: updatedCoaches }));
+    };
 
   return (
     <div className="select-seats">
@@ -88,7 +85,6 @@ const SelectSeats = ({ direction, train, seats }: SelectSeatsProps) => {
             openedCoaches[direction].includes(coach.coachNumber) &&
             <CoachInfo key={coach.coachNumber} direction={direction} currentCoach={coach} />
           ))}
-
         </div>}
 
       {selectedSeats[direction].length

@@ -6,6 +6,7 @@ import ThirdClassCoach from "../SchemeCoaches/ThirdClassCoach";
 import FourthClassCoach from "../SchemeCoaches/FourthClassCoach";
 import { SelectServiceOptions } from "../../components";
 import { CurrencyIconSvg } from "../../components/icons";
+import { getRandomNumber } from "../../utils/getRandomNumber";
 
 type CoachInfoProps = {
   direction: "from" | "to";
@@ -106,7 +107,7 @@ const CoachInfo = ({ direction, currentCoach }: CoachInfoProps) => {
       </div>
 
       <div className="select-seats__people-online-choose">
-        11 человек выбирают места в этом поезде
+        {`${getRandomNumber(1, 13)} человек выбирают места в этом поезде`}
       </div>
 
       {coach.class_type === "first"

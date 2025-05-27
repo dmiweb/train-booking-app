@@ -14,10 +14,14 @@ const PassengersPage = () => {
   const { selectedSeats } = useAppSelector(state => state.seats);
   const { departure } = useAppSelector(state => state.passengers);
 
+  // console.log("PassengersPage", selectedSeats)
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const newPassengers: TPassengerInfo[] = selectedSeats["from"].map((seat) => {
       const passenger = departure.seats.find(s =>
         s.coach_id === seat.coach_id && s.seat_number === seat.seat_number);
@@ -100,7 +104,10 @@ const PassengersPage = () => {
             />
           })}
 
-          <button className="passenger__add-passenger-form-btn">
+          <button
+            className="passenger__add-passenger-form-btn"
+            onClick={() => navigate("/seats", {state: {updatePassengers: true}})}
+          >
             Добавить пассажира
             <PlusIconSvg width={18} fill='#ffa800' />
           </button>

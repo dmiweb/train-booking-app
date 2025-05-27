@@ -436,6 +436,7 @@ export type TSeatsState = {
     from: TSelectedOptions,
     to: TSelectedOptions,
   },
+  openedCoaches: { from: string[], to: string[] },
   limitPassenger: number,
   adultPassenger: number,
   childPassenger: number,

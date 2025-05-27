@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../hooks";
 import { setOpenModal, setCloseModal } from "../../slices/modalSlice";
 import { requestLastTickets } from "../../slices/lastTicketsSlice";
@@ -15,11 +15,18 @@ const SeatsSelectPage = () => {
   const { lastTickets } = useAppSelector(state => state.lastTickets);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const updatePassengers = location.state;
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     dispatch(requestLastTickets());
-    dispatch(requestSeats());
+
+    if (!updatePassengers) {
+      dispatch(requestSeats());
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -44,10 +51,19 @@ const SeatsSelectPage = () => {
       {
         <Modal>
           {error &&
-            <MessageWidget typeMessage="error"
-              title={error}
-              handlerMessageBtn={() => dispatch(requestSeats())}
-            />}
+            <>
+              {error === "Поезд не выбран или данные отсутствуют" &&
+                <MessageWidget typeMessage="info"
+                  title={error}
+                  handlerMessageBtn={() => navigate("/", { replace: true })}
+                />}
+
+              {error !== "Поезд не выбран или данные отсутствуют" &&
+                <MessageWidget typeMessage="error"
+                  title={error || "Неизвестная ошибка"}
+                  handlerMessageBtn={() => dispatch(requestSeats())}
+                />}
+            </>}
 
           {isOpen && !error && (!activeTypeSeat.from || !activeTypeSeat.to) &&
             <MessageWidget typeMessage="info"

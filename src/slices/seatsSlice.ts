@@ -26,6 +26,7 @@ const initialState: TSeatsState = {
       food: "unselected",
     }
   },
+  openedCoaches: { from: [], to: [] },
   limitPassenger: 4,
   adultPassenger: 0,
   childPassenger: 0,
@@ -60,14 +61,14 @@ export const seatsSlice = createSlice({
           linens: "unselected",
           food: "unselected",
         }
-      }
+      };
+      state.openedCoaches = { from: [], to: [] };
       state.selectedSeats = { from: [], to: [] };
       state.loading = true;
       state.error = null;
     },
 
     setActiveTypeSeat: (state, action: PayloadAction<{ type: "from" | "to", value: string }>) => {
-      // console.log(action.payload)
       state.activeTypeSeat[action.payload.type] = action.payload.value;
     },
 
@@ -79,8 +80,11 @@ export const seatsSlice = createSlice({
       state,
       action: PayloadAction<{ type: "from" | "to", value: TSelectedOptions }>
     ) => {
-      // console.log(action.payload.value)
       state.optionsService[action.payload.type] = action.payload.value;
+    },
+
+    setOpenedCoaches: (state, action: PayloadAction<{ direction: 'from' | 'to'; coaches: string[] }>) => {
+      state.openedCoaches[action.payload.direction] = action.payload.coaches;
     },
 
     addSeat: (state, action: PayloadAction<{ type: "from" | "to", value: TSelectedSeat }>) => {
@@ -99,13 +103,11 @@ export const seatsSlice = createSlice({
     getSeatsFromSuccess: (state, action: PayloadAction<TSeat[]>) => {
       state.seatsFrom = action.payload;
       state.loading = false;
-      // console.log(state.seatsFrom)
     },
 
     getSeatsToSuccess: (state, action: PayloadAction<TSeat[]>) => {
       state.seatsTo = action.payload;
       state.loading = false;
-      // console.log(state.seatsTo)
     },
 
     getSeatsFailure: (state, action: PayloadAction<string>) => {
@@ -123,6 +125,7 @@ export const {
   setActiveTypeSeat,
   setActiveTypeCoach,
   setOptionsService,
+  setOpenedCoaches,
   addSeat,
   removeSeat,
   getSeatsFromSuccess,

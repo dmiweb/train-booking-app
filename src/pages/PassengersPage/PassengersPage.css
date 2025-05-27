@@ -16,6 +16,11 @@
   color: #292929;
   background-color: #ffffff;
   cursor: pointer;
+
+  &:hover {
+    border-color: #ffa800;
+    color: #ffa800;
+  }
 }
 
 .passenger__next-btn {

@@ -19,11 +19,6 @@ function* handleGetSeatsSaga(): Generator {
 
   const { departure, arrival } = selectedTrain;
 
-  if (!departure._id) {
-    yield put(getSeatsFailure("Неверный ID поезда"));
-    return;
-  }
-
   const {
     have_wifi,
     have_air_conditioning
@@ -34,7 +29,7 @@ function* handleGetSeatsSaga(): Generator {
       have_wifi,
       have_air_conditioning
     })
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .filter(([_, value]) => {
         return value !== false && value !== 0 && value !== "" && value != null;
       })
@@ -57,21 +52,31 @@ function* handleGetSeatsSaga(): Generator {
   let attempt = 0;
 
   while (true) {
+    if (attempt === 4) break;
+    
     try {
       attempt++;
 
       const seatsFrom: TSeat[] = yield call(fetchData, urlFrom, signal);
       yield put(getSeatsFromSuccess(seatsFrom));
 
-      if(urlTo) {
+      if (urlTo) {
         const seatsTo: TSeat[] = yield call(fetchData, urlTo, signal);
         yield put(getSeatsToSuccess(seatsTo));
-      } 
+      }
 
       break;
     } catch (err: unknown) {
       void err;
-      yield put(getSeatsFailure("Произошла ошибка!"));
+      // yield put(getSeatsFailure("Произошла ошибка!"));
+
+      if (attempt === 4) {
+        if (!navigator.onLine) {
+          yield put(getSeatsFailure("Нет соединения с интернетом!"));
+        } else {
+          yield put(getSeatsFailure("Не удалось загрузить выбранный поезд!"));
+        }
+      }
     }
     finally {
       if (yield cancelled()) {
