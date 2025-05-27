@@ -31,6 +31,7 @@ const PassengerForm = ({
   const [wasValidateForm, setWasValidateForm] = useState(false);
   const [passportSeries, setPassportSeries] = useState("");
   const [passportNumber, setPassportNumber] = useState("");
+  const [typeSeat, setTypeSeat] = useState(seat.is_adult ? "adult" : "child");
   const [typeDocument, setTypeDocument] =
     useState(seat.is_adult ? "passport" : "birth-certificate");
   const nextBtnRef = useRef<HTMLButtonElement>(null);
@@ -76,9 +77,10 @@ const PassengerForm = ({
     if (passport) {
       const passportData = passport.split(" ");
 
-      setPassportSeries(passportData[0])
-      setPassportNumber(passportData[1])
+      setPassportSeries(passportData[0]);
+      setPassportNumber(passportData[1]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Соединение серии и номера паспорта в одну строку
@@ -121,13 +123,15 @@ const PassengerForm = ({
 
         {isOpenForm &&
           <form className='passenger__form' onSubmit={(e) => validateForm(e)} noValidate>
-
             <div className="passenger__field">
               <div className="passenger__type">
                 <select
                   className="passenger__type-select"
-                  value={seat.is_adult ? "adult" : "child"}
-                  onChange={(e) => handleFieldChange("is_adult", e.target.value === "adult")}
+                  value={typeSeat}
+                  onChange={(e) => {
+                    setTypeSeat(e.target.value);
+                    handleFieldChange("is_adult", e.target.value === "adult" ? true : false);
+                  }}
                 >
                   <option className="passenger__type-select-item" value="adult">
                     Взрослый

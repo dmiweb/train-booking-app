@@ -417,7 +417,6 @@
 
 .select-seats__coach-seats-info {
   display: flex;
-  /* gap: 113px; */
   box-sizing: border-box;
   padding: 33px 0 17px 85px;
 }
@@ -426,7 +425,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-right: 113px;
+  width: 240px;
 }
 
 .select-seats__coach-seats-free-all-title,

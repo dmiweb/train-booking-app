@@ -91,7 +91,10 @@ const CoachInfo = ({ direction, currentCoach }: CoachInfoProps) => {
             <span className="select-seats__coach-seats-price-title">Стоимость</span>
 
             <span className="select-seats__coach-seats-price-upper">
-              {getPriceTicket(coach.top_price)}
+              {coach.class_type === "first" && getPriceTicket(coach.price)}
+              {coach.class_type === "second" && getPriceTicket(coach.top_price)}
+              {coach.class_type === "third" && getPriceTicket(coach.top_price)}
+              {coach.class_type === "fourth" && getPriceTicket(coach.bottom_price)}
               <CurrencyIconSvg code="rub" width={14} fill="#928f94" />
             </span>
 

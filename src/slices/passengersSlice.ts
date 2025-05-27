@@ -37,7 +37,6 @@ export const passengersSlice = createSlice({
       );
 
       if (passenger && passenger.person_info[field] !== undefined) {
-        // console.log(field, value)
         if (field === 'is_adult') {
           passenger.person_info[field] = value as boolean;
         } else {
