@@ -1,9 +1,10 @@
 .order-tickets-section-homepage {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
   gap: 104px;
   height: 985px;
+  padding-left: 349px;
   padding-right: 232px;
   background-image: url(../../assets/img/order-tickets-background-homepage.webp);
   background-repeat: no-repeat;
@@ -14,8 +15,9 @@
 @media (max-width: 1919px) {
   .order-tickets-section-homepage {
     justify-content: center;
-    gap: 60px; /* Уменьшаем gap */
-    padding-right: 0; /* Уменьшаем padding-right */
+    gap: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
