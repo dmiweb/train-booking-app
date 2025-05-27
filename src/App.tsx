@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { HomePage, TrainSelectPage, SeatsSelectPage, PassengersPage, PaymentPage, ConfirmPage, SuccessOrderPage } from './pages';
+import { HomePage, TrainSelectPage, SeatsSelectPage, PassengersPage, PaymentPage, ConfirmPage, SuccessOrderPage, NotFoundPage } from './pages';
 import { Layout, OrderLayout } from './components';
 import "./assets/css/normalize.css"
 import './App.css';
@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/confirm" element={<ConfirmPage />} />
         <Route path="/success" element={<SuccessOrderPage />} />
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   )

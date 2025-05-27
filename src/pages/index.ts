@@ -5,3 +5,4 @@ export { default as PassengersPage } from './PassengersPage/PassengersPage';
 export { default as PaymentPage } from './PaymentPage/PaymentPage';
 export { default as ConfirmPage } from './ConfirmPage/ConfirmPage';
 export { default as SuccessOrderPage } from './SuccessOrderPage/SuccessOrderPage';
+export { default as NotFoundPage } from './NotFoundPage/NotFoundPage';
