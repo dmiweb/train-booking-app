@@ -3,7 +3,6 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 34px;
-
 }
 
 .ticket-search-form--homepage {
@@ -57,7 +56,7 @@
 }
 
 .ticket-search-form__date-input {
-    box-sizing: border-box;
+  box-sizing: border-box;
   width: 325px;
   height: 60px;
   padding: 0 19px;
@@ -87,4 +86,19 @@
   flex: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+@media (min-width: 1440px) and (max-width: 1489px) {
+  .ticket-search-form {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .ticket-search-form__container-submit-btn {
+    /* flex: 0 0; */
+    /* align-self: center; */
+    margin-top: 20px;
+    width: 684px;
+  }
 }

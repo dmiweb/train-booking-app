@@ -21,8 +21,9 @@
   display: flex;
   justify-content: center;
   gap: 83px;
-  margin-top: 95px;
-  margin-bottom: 193px;
+  margin: 95px auto 193px;
+  /* margin-top: 95px; */
+  /* margin-bottom: 193px; */
 }
 
 .main-train-selection-page {
@@ -30,9 +31,12 @@
   max-width: 960px;
 }
 
-
-@media (max-width: 1919px) {
-  .order-tickets-section__container {
-    padding: 28px 18px;
-  }
+@media  (max-width: 1440px) {
+.order-page-wrap {
+  /* display: flex; */
+  /* justify-content: center; */
+  gap: 30px;
+  /* margin-top: 95px; */
+  /* margin-bottom: 193px; */
+}
 }
